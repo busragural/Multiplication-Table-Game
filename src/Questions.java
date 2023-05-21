@@ -13,9 +13,17 @@ public class Questions {
     
 
     List<int[]> questions = new ArrayList<>();
-    public Questions(){
-        
+    
+
+  
+    
+  
+    public Questions() {
+         questions = new ArrayList<>();
+         
+         
     }
+    
     
 
     public Questions(int firstNumLow, int firstNumHigh, int secondNumLow, int secondNumHigh, int questionNum) {
@@ -24,6 +32,10 @@ public class Questions {
         this.secondNumLow = secondNumLow;
         this.secondNumHigh = secondNumHigh;
         this.questionNum = questionNum;
+        questions = new ArrayList<>();
+       
+        
+       
     }
 
     @Override
@@ -40,14 +52,20 @@ public class Questions {
         
         int firstRandomNum;
         int secondRandomNum;
-     
+    
       
         for(int i=0; i<n; i++){
             firstRandomNum = rand.nextInt(a2 - a1 + 1) + a1;
             secondRandomNum = rand.nextInt(b2 - b1 + 1) + b1;
-            int[] tmp = {firstRandomNum, secondRandomNum};
+            System.out.println("first: " + firstRandomNum);
+            System.out.println("second" + secondRandomNum);
+            int tmp[] = {firstRandomNum, secondRandomNum};
             questions.add(tmp);
+            System.out.println(questions);
         }
+       
+        
+       
  
     }
     

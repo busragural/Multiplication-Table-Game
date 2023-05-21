@@ -1,16 +1,19 @@
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
+import javax.swing.Timer;
 
 public class GameScreen extends javax.swing.JFrame {
 
-   
+   private Timer timer;
     Questions q = new Questions();
     List<int[]> questions = q.questions;
     
-    GameMode gm = new GameMode();
-    List<Questions> qRange = gm.questionsRange;
+
+
 
     
     public GameScreen() {
@@ -234,6 +237,22 @@ public class GameScreen extends javax.swing.JFrame {
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
         //q.randomQuestion(1,4,3,6,4);
+        
+        
+        ////timer ltfn silme////
+        timer = new Timer(1000, new ActionListener() {
+        int seconds = 0;
+
+        public void actionPerformed(ActionEvent e) {
+            seconds++;
+            timerField.setText(String.valueOf(seconds));
+        }
+        });
+         timer.start();
+        //////////////////
+         
+         
+         
         int[] elements =questions.get(0);
         String tmp1 = String.valueOf(elements[0]);
         firstNumberGSField.setText(tmp1);

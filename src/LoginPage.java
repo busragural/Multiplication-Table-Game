@@ -8,8 +8,8 @@ import javax.swing.JOptionPane;
 public class LoginPage extends javax.swing.JFrame {
 
 
-    List<ChildrenInfo> childInfo = new ArrayList<>();
-    
+   
+
     
     public LoginPage() {
         initComponents();
@@ -192,39 +192,47 @@ public class LoginPage extends javax.swing.JFrame {
         String password = new String( passwordField.getPassword());
         
        
-       if("parent".equals(username) && "123".equals(password)){
+       if("par".equals(username) && "123".equals(password)){
            
-           String message="ebevenyn girisi."+" "+username;
+           String message="Parent login.";
            JOptionPane.showMessageDialog(this, message);
            dispose();
            new GameMode().setVisible(true); 
        }
       
        else{
-           /* 
+           
            ChildrenInfo isThereChild = new ChildrenInfo(username, password);
            
-           childInfo = FileOp.readChildFromFile("ChildrenInfo.ser");
+           List<ChildrenInfo> childInfo = FileOp.readChildFromFile("ChildrenInfo.ser");
+           
+           System.out.println(childInfo);
+           
+           boolean isChildFound = false;
+            for (ChildrenInfo child : childInfo) {
+                
+                if (child.equals(isThereChild)) {
+                  
+                    isChildFound = true;
+                }
+            }
            
            
-           if(childInfo.contains(isThereChild)){
+           if(isChildFound){
                
-               String message="cocuk girisi."+" "+username;
+               String message="Child login";
                JOptionPane.showMessageDialog(this, message);
                dispose();
                new GameScreen().setVisible(true); 
            }
            else{
                
-               String message="boyle cocuk yok.";
+               
+               String message="Invalid user.";
                JOptionPane.showMessageDialog(this, message);
+               
            }
-            */
-           
-               String message="cocuk girisi.";
-               JOptionPane.showMessageDialog(this, message);
-               dispose();
-               new GameScreen().setVisible(true); 
+       
            
        }
        
@@ -239,19 +247,22 @@ public class LoginPage extends javax.swing.JFrame {
     
     
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        /*
-        String username = usernameRegField.getText();
-        String password = new String( passwordRegField.getPassword());
-    
-        ChildrenInfo child = new ChildrenInfo(username, password);
         
-        FileOp.writeChildToFile(child, "ChildrenInfo.ser");
-        */
-      
+        String username = usernameRegField.getText();
+        String password = new String(passwordRegField.getPassword());
+        
+        List<ChildrenInfo> tmp = FileOp.readChildFromFile("ChildrenInfo.ser");
+        
+        ChildrenInfo child = new ChildrenInfo(username, password);
+        tmp.add(child);
+        
+        FileOp.writeChildToFile(tmp, "ChildrenInfo.ser");
+        System.out.println(tmp);
         
     }//GEN-LAST:event_registerButtonActionPerformed
 
-
+   
+    
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

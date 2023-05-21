@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 public class GameMode extends javax.swing.JFrame {
         
     List<Questions> questionsRange = new ArrayList<>();
-
+    List<int[]> qq = new ArrayList<>();
     
     
     
@@ -222,15 +222,18 @@ public class GameMode extends javax.swing.JFrame {
         
         String input3 = secondNumberField1.getText();
         int b1 = Integer.parseInt(input3);       
-        String input4 = secondNumberField1.getText();
+        String input4 = secondNumberField2.getText();
         int b2 = Integer.parseInt(input4);  
         
         
         String input5 = questNumberField.getText();
         int N = Integer.parseInt(input5);    
-        Questions quest = new Questions(a1,a2, b1, b2,N);
+        Questions quest = new Questions();
+        quest.randomQuestion(a1, a2, b1, b2, N);
         
-        questionsRange.add(quest);
+        
+        
+        
   
         String message="Game is saved.";
         JOptionPane.showMessageDialog(this, message);

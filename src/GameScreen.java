@@ -4,13 +4,15 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 public class GameScreen extends javax.swing.JFrame {
 
    private Timer timer;
-    Questions q = new Questions();
-    List<int[]> questions = q.questions;
+   
+    GameMode gameMode;
+    List<int[]> questions;
     
 
 
@@ -18,6 +20,8 @@ public class GameScreen extends javax.swing.JFrame {
     
     public GameScreen() {
         initComponents();
+        gameMode = new GameMode();
+        questions = gameMode.questions;
     }
     
     @SuppressWarnings("unchecked")
@@ -45,11 +49,6 @@ public class GameScreen extends javax.swing.JFrame {
         answerField.setForeground(new java.awt.Color(163, 26, 203));
         answerField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         answerField.setBorder(null);
-        answerField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answerFieldActionPerformed(evt);
-            }
-        });
 
         firstNumberGSField.setEditable(false);
         firstNumberGSField.setBackground(new java.awt.Color(157, 241, 223));
@@ -57,11 +56,6 @@ public class GameScreen extends javax.swing.JFrame {
         firstNumberGSField.setForeground(new java.awt.Color(163, 26, 203));
         firstNumberGSField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         firstNumberGSField.setBorder(null);
-        firstNumberGSField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNumberGSFieldActionPerformed(evt);
-            }
-        });
 
         xGSLabel.setBackground(new java.awt.Color(163, 26, 203));
         xGSLabel.setFont(new java.awt.Font("Press Start 2P", 0, 48)); // NOI18N
@@ -74,11 +68,6 @@ public class GameScreen extends javax.swing.JFrame {
         secondNumberGSField.setForeground(new java.awt.Color(163, 26, 203));
         secondNumberGSField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         secondNumberGSField.setBorder(null);
-        secondNumberGSField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secondNumberGSFieldActionPerformed(evt);
-            }
-        });
 
         equalsLabel.setBackground(new java.awt.Color(163, 26, 203));
         equalsLabel.setFont(new java.awt.Font("Press Start 2P", 0, 48)); // NOI18N
@@ -102,11 +91,6 @@ public class GameScreen extends javax.swing.JFrame {
         timerField.setForeground(new java.awt.Color(163, 26, 203));
         timerField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         timerField.setBorder(null);
-        timerField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                timerFieldActionPerformed(evt);
-            }
-        });
 
         gameGSLabel.setFont(new java.awt.Font("Press Start 2P", 0, 36)); // NOI18N
         gameGSLabel.setForeground(new java.awt.Color(163, 26, 203));
@@ -211,34 +195,34 @@ public class GameScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void answerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerBtnActionPerformed
+      
+        
+        if (!questions.isEmpty()) {
+            int[] elements = questions.get(0);
+            String tmp1 = String.valueOf(elements[0]);
+            firstNumberGSField.setText(tmp1);
 
+            String tmp2 = String.valueOf(elements[1]);
+            secondNumberGSField.setText(tmp2);
+
+            questions.remove(0); // sorulari listeden kaldır
+        } else {
+            timer.stop();
+            int gameTime = Integer.parseInt(timerField.getText());
+            String message="Time to finish the game: " + gameTime + " min.";
+            JOptionPane.showMessageDialog(this, message);
+            
+        }
   
     }//GEN-LAST:event_answerBtnActionPerformed
-
-    private void timerFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timerFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_timerFieldActionPerformed
 
     private void gameNumberFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gameNumberFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_gameNumberFieldActionPerformed
 
-    private void answerFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_answerFieldActionPerformed
-
-    private void secondNumberGSFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secondNumberGSFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_secondNumberGSFieldActionPerformed
-
-    private void firstNumberGSFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNumberGSFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_firstNumberGSFieldActionPerformed
-
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
-        //q.randomQuestion(1,4,3,6,4);
         
-        
+  
         ////timer ltfn silme////
         timer = new Timer(1000, new ActionListener() {
         int seconds = 0;
@@ -251,7 +235,8 @@ public class GameScreen extends javax.swing.JFrame {
          timer.start();
         //////////////////
          
-         
+        questions = FileOp.readQuestionFromFile("Questions.ser");
+        
          
         int[] elements =questions.get(0);
         String tmp1 = String.valueOf(elements[0]);
@@ -259,7 +244,7 @@ public class GameScreen extends javax.swing.JFrame {
         
         String tmp2 = String.valueOf(elements[1]);
         secondNumberGSField.setText(tmp2);
-        
+        questions.remove(0);
         startButton.setVisible(false);
         
     }//GEN-LAST:event_startButtonActionPerformed

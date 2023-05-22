@@ -1,31 +1,28 @@
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 
-public class Questions {
-    
+public class Questions implements Serializable {
+    private static final long serialVersionUID = 1L;
     
     private int firstNumLow, firstNumHigh;
     private int secondNumLow, secondNumHigh; 
     private int questionNum;
     
 
-    List<int[]> questions = new ArrayList<>();
+    public List<int[]> questions = new ArrayList<>();
     
 
-  
-    
-  
     public Questions() {
          questions = new ArrayList<>();
          
-         
     }
     
-    
-
     public Questions(int firstNumLow, int firstNumHigh, int secondNumLow, int secondNumHigh, int questionNum) {
         this.firstNumLow = firstNumLow;
         this.firstNumHigh = firstNumHigh;
@@ -33,9 +30,7 @@ public class Questions {
         this.secondNumHigh = secondNumHigh;
         this.questionNum = questionNum;
         questions = new ArrayList<>();
-       
-        
-       
+   
     }
 
     @Override
@@ -44,10 +39,7 @@ public class Questions {
     }
     
     
-    
-
-    
-    public void randomQuestion(int a1, int a2, int b1, int b2, int n){
+    public List<int[]> randomQuestion(int a1, int a2, int b1, int b2, int n){
         Random rand = new Random();
         
         int firstRandomNum;
@@ -59,14 +51,13 @@ public class Questions {
             secondRandomNum = rand.nextInt(b2 - b1 + 1) + b1;
             System.out.println("first: " + firstRandomNum);
             System.out.println("second" + secondRandomNum);
-            int tmp[] = {firstRandomNum, secondRandomNum};
-            questions.add(tmp);
-            System.out.println(questions);
+            int a[] = {firstRandomNum, secondRandomNum};
+         
+            questions.add(a);         
         }
-       
-        
-       
  
+       return questions;
+
     }
     
     

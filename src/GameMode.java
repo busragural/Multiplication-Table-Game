@@ -7,13 +7,19 @@ import javax.swing.JOptionPane;
 
 public class GameMode extends javax.swing.JFrame {
         
-    List<Questions> questionsRange = new ArrayList<>();
-    List<int[]> qq = new ArrayList<>();
-    
+   
+    List<int[]> questions;
+    private Questions quest;
+    private Questions questForSettings;
+    List<Questions> settings;
     
     
     public GameMode() {
         initComponents();
+        questions = new ArrayList<>();
+        quest = new Questions();
+        
+       
     }
 
   
@@ -228,9 +234,16 @@ public class GameMode extends javax.swing.JFrame {
         
         String input5 = questNumberField.getText();
         int N = Integer.parseInt(input5);    
-        Questions quest = new Questions();
-        quest.randomQuestion(a1, a2, b1, b2, N);
         
+        //questForSettings = new Questions(a1,a2,b1,b2,N);
+        //settings.add(questForSettings);
+        //FileOp.writeSettingsToFile(settings, "Settings.ser");
+        
+        //List<Questions> deneme123 = FileOp.readSettingsFromFile("Settings.ser");
+        //System.out.println(deneme123);
+        
+        questions = quest.randomQuestion(a1, a2, b1, b2, N);
+        FileOp.writeQuestionToFile(questions, "Questions.ser");
         
         
         

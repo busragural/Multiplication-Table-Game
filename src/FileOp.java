@@ -6,7 +6,7 @@ import java.util.List;
 
 
 public class FileOp {
-    
+    //////////CHILD
     public static void writeChildToFile(List<ChildrenInfo> childrenList, String fileName) {
       
         try (FileOutputStream fileOut = new FileOutputStream(fileName);
@@ -39,7 +39,8 @@ public class FileOp {
             return childrenList;
     }
 
-    
+    /////////////
+    /*
     public static void writeQuestionToFile(List<int[]> qList, String fileName) {
       
         try (FileOutputStream fileOut = new FileOutputStream(fileName);
@@ -64,9 +65,9 @@ public class FileOp {
             }
             return qList;
     }
+    */
     
-    
-    public static void writeSettingsToFile(List<Questions> settings, String fileName) {
+    public static void writeSettingsToFile(List<List<int[]>> settings, String fileName) {
       
         try (FileOutputStream fileOut = new FileOutputStream(fileName);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
@@ -77,13 +78,13 @@ public class FileOp {
             }
     }
     
-      public static List<Questions> readSettingsFromFile(String fileName) {
+      public static List<List<int[]>> readSettingsFromFile(String fileName) {
         
-        List<Questions> settings = new ArrayList<>();
+        List<List<int[]>> settings = new ArrayList<>();
             try (FileInputStream fileIn = new FileInputStream(fileName);
                 ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
 
-                settings = (ArrayList<Questions>) objectIn.readObject();
+                settings = (List<List<int[]>>) objectIn.readObject();
                 
             } catch (IOException | ClassNotFoundException e) {
                 System.out.println("Hata: " + e.getMessage());
@@ -91,6 +92,34 @@ public class FileOp {
             return settings;
     }
     
+      
+          
+    public static void writeQuestionToFile(List<Questions> qList, String fileName) {
+      
+        try (FileOutputStream fileOut = new FileOutputStream(fileName);
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
+                objectOut.writeObject(qList);
+                System.out.println("Dosyaya yazıldı.");
+            } catch (IOException e) {
+                System.out.println("Hata: " + e.getMessage());
+            }
+    }
+    
+    public static List<Questions> readQuestionFromFile(String fileName) {
+        
+        List<Questions> qList = new ArrayList<>();
+            try (FileInputStream fileIn = new FileInputStream(fileName);
+                ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
+
+                qList = (ArrayList<Questions>) objectIn.readObject();
+                
+            } catch (IOException | ClassNotFoundException e) {
+                System.out.println("Hata: " + e.getMessage());
+            }
+            return qList;
+    }
+      
+      
     
     
 }

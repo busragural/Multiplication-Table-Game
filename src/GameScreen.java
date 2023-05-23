@@ -13,15 +13,12 @@ public class GameScreen extends javax.swing.JFrame {
    
     GameMode gameMode;
     List<int[]> questions;
-    
-
-
-
+ 
     
     public GameScreen() {
         initComponents();
         gameMode = new GameMode();
-        questions = gameMode.questions;
+        //questions = gameMode.questions;
     }
     
     @SuppressWarnings("unchecked")
@@ -206,13 +203,15 @@ public class GameScreen extends javax.swing.JFrame {
             secondNumberGSField.setText(tmp2);
 
             questions.remove(0); // sorulari listeden kaldır
-        } else {
+        } 
+        else {
             timer.stop();
             int gameTime = Integer.parseInt(timerField.getText());
-            String message="Time to finish the game: " + gameTime + " min.";
+            String message="Time to finish the game: " + gameTime + " sec.";
             JOptionPane.showMessageDialog(this, message);
             
         }
+        
   
     }//GEN-LAST:event_answerBtnActionPerformed
 
@@ -235,7 +234,11 @@ public class GameScreen extends javax.swing.JFrame {
          timer.start();
         //////////////////
          
-        questions = FileOp.readQuestionFromFile("Questions.ser");
+        //questions = FileOp.readQuestionFromFile("Questions.ser");
+        
+        
+        
+        
         
          
         int[] elements =questions.get(0);

@@ -7,19 +7,16 @@ import javax.swing.JOptionPane;
 
 public class GameMode extends javax.swing.JFrame {
         
-   
-    List<int[]> questions;
-    private Questions quest;
-    private Questions questForSettings;
-    List<Questions> settings;
-    
-    
+    Questions q; 
+    GameChoice gc;
     public GameMode() {
+        System.out.println("denemeaglicam");
         initComponents();
-        questions = new ArrayList<>();
-        quest = new Questions();
-        
-       
+        System.out.println("denemedahafazlaglicam");
+        q = new Questions();  
+        gc = new GameChoice();
+
+  
     }
 
   
@@ -40,6 +37,7 @@ public class GameMode extends javax.swing.JFrame {
         logoutBtn = new javax.swing.JButton();
         firstNumberField2 = new javax.swing.JTextField();
         secondNumberField2 = new javax.swing.JTextField();
+        tablebtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,11 +48,6 @@ public class GameMode extends javax.swing.JFrame {
         firstNumberField1.setForeground(new java.awt.Color(255, 255, 255));
         firstNumberField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         firstNumberField1.setBorder(null);
-        firstNumberField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNumberField1ActionPerformed(evt);
-            }
-        });
 
         fnLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         fnLabel.setForeground(new java.awt.Color(163, 26, 203));
@@ -82,7 +75,7 @@ public class GameMode extends javax.swing.JFrame {
 
         qnLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         qnLabel.setForeground(new java.awt.Color(163, 26, 203));
-        qnLabel.setText("HOW MANY QUESTIONS DO YOU WANT TO ASK?");
+        qnLabel.setText("NUMBER OF QUESTIONS TO ASK");
 
         questNumberField.setBackground(new java.awt.Color(141, 203, 230));
         questNumberField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -126,82 +119,102 @@ public class GameMode extends javax.swing.JFrame {
         secondNumberField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         secondNumberField2.setBorder(null);
 
+        tablebtn.setBackground(new java.awt.Color(163, 26, 203));
+        tablebtn.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
+        tablebtn.setForeground(new java.awt.Color(255, 255, 255));
+        tablebtn.setText("table");
+        tablebtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tablebtn.setBorderPainted(false);
+        tablebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tablebtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout modePanelLayout = new javax.swing.GroupLayout(modePanel);
         modePanel.setLayout(modePanelLayout);
         modePanelLayout.setHorizontalGroup(
             modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-            .addGroup(modePanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(modePanelLayout.createSequentialGroup()
-                        .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(modePanelLayout.createSequentialGroup()
-                                .addGap(149, 149, 149)
-                                .addComponent(firstNumberField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(modePanelLayout.createSequentialGroup()
-                                .addGap(179, 179, 179)
-                                .addComponent(fnLabel)))
-                        .addGap(7, 7, 7)
-                        .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(qnLabel)
-                                .addGroup(modePanelLayout.createSequentialGroup()
-                                    .addComponent(questNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(143, 143, 143)))
-                            .addGroup(modePanelLayout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(newUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(modePanelLayout.createSequentialGroup()
-                                        .addGap(13, 13, 13)
-                                        .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(modePanelLayout.createSequentialGroup()
-                                                .addComponent(firstNumberField2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(36, 36, 36)
-                                                .addComponent(xLabel)
-                                                .addGap(49, 49, 49)
-                                                .addComponent(secondNumberField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(34, 34, 34)
-                                                .addComponent(secondNumberField2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
-                                                .addComponent(snLabel)
-                                                .addGap(75, 75, 75)))))
-                                .addGap(66, 66, 66))))
-                    .addGroup(modePanelLayout.createSequentialGroup()
-                        .addGap(418, 418, 418)
-                        .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(98, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
+                        .addComponent(newUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(146, 146, 146)
+                        .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
+                        .addComponent(firstNumberField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(firstNumberField2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(xLabel)
+                        .addGap(57, 57, 57)
+                        .addComponent(secondNumberField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(secondNumberField2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(139, 139, 139))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
+                .addGap(234, 234, 234)
+                .addComponent(fnLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 351, Short.MAX_VALUE)
+                .addComponent(snLabel)
+                .addGap(217, 217, 217))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
+                        .addComponent(qnLabel)
+                        .addGap(342, 342, 342))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
+                        .addComponent(questNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(248, 248, 248)
+                        .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27))))
+            .addGroup(modePanelLayout.createSequentialGroup()
+                .addGap(421, 421, 421)
+                .addComponent(tablebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         modePanelLayout.setVerticalGroup(
             modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(modePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(newUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(snLabel)
-                    .addComponent(fnLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(firstNumberField1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(firstNumberField2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(secondNumberField1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(secondNumberField2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(xLabel))
-                .addGap(39, 39, 39)
+                .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(modePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(modePanelLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(newUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(53, 53, 53)
+                .addComponent(tablebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fnLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(snLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(modePanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(firstNumberField1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(firstNumberField2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(secondNumberField1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(secondNumberField2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(modePanelLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(xLabel)))
+                .addGap(70, 70, 70)
                 .addComponent(qnLabel)
-                .addGap(18, 18, 18)
-                .addComponent(questNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(modePanelLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
+                        .addComponent(questNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -235,21 +248,25 @@ public class GameMode extends javax.swing.JFrame {
         String input5 = questNumberField.getText();
         int N = Integer.parseInt(input5);    
         
-        //questForSettings = new Questions(a1,a2,b1,b2,N);
-        //settings.add(questForSettings);
-        //FileOp.writeSettingsToFile(settings, "Settings.ser");
+        int[] tmp = {a1, a2, b1, b2, N};
+
         
-        //List<Questions> deneme123 = FileOp.readSettingsFromFile("Settings.ser");
-        //System.out.println(deneme123);
+        q.makeOneSetting(tmp);
+        List<Questions> tmpL = FileOp.readQuestionFromFile("Settings.ser");
+        tmpL.add(q);
+        FileOp.writeQuestionToFile(tmpL, "Settings.ser");
         
-        questions = quest.randomQuestion(a1, a2, b1, b2, N);
-        FileOp.writeQuestionToFile(questions, "Questions.ser");
+
+        for (Questions element : tmpL) {
+            System.out.println(element);
+        }
         
-        
-        
-  
         String message="Game is saved.";
         JOptionPane.showMessageDialog(this, message);
+
+          
+        gc.setTableData(a1, a2, b1, b2, N);
+        //gc.setVisible(true);
 
     }//GEN-LAST:event_saveBtnActionPerformed
 
@@ -260,9 +277,16 @@ public class GameMode extends javax.swing.JFrame {
         new LoginPage().setVisible(true);
     }//GEN-LAST:event_logoutBtnActionPerformed
 
-    private void firstNumberField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNumberField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_firstNumberField1ActionPerformed
+
+    
+    
+    private void tablebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tablebtnActionPerformed
+        
+        dispose();
+        gc.setVisible(true);
+        
+       
+    }//GEN-LAST:event_tablebtnActionPerformed
 
  
     public static void main(String args[]) {
@@ -313,6 +337,7 @@ public class GameMode extends javax.swing.JFrame {
     private javax.swing.JTextField secondNumberField1;
     private javax.swing.JTextField secondNumberField2;
     private javax.swing.JLabel snLabel;
+    private javax.swing.JButton tablebtn;
     private javax.swing.JLabel xLabel;
     // End of variables declaration//GEN-END:variables
 }

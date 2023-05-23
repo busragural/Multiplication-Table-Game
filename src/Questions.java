@@ -9,39 +9,39 @@ import java.util.Random;
 
 public class Questions implements Serializable {
     private static final long serialVersionUID = 1L;
+
+  
+    int[] settings;
+    //List<int[]> exercises;
     
-    private int firstNumLow, firstNumHigh;
-    private int secondNumLow, secondNumHigh; 
-    private int questionNum;
     
 
-    public List<int[]> questions = new ArrayList<>();
+    public Questions( ) {
+         //exercises = new ArrayList<>();
+         settings = new int[5];
     
-
-    public Questions() {
-         questions = new ArrayList<>();
-         
     }
     
-    public Questions(int firstNumLow, int firstNumHigh, int secondNumLow, int secondNumHigh, int questionNum) {
-        this.firstNumLow = firstNumLow;
-        this.firstNumHigh = firstNumHigh;
-        this.secondNumLow = secondNumLow;
-        this.secondNumHigh = secondNumHigh;
-        this.questionNum = questionNum;
-        questions = new ArrayList<>();
-   
+    
+    public void makeOneSetting(int[] range){
+       settings = range;
+       //exercises = randomQuestion(settings[0], settings[1], settings[2], settings[3], settings[4]);
     }
 
-    @Override
-    public String toString() {
-        return "Questions{" + "firstNumLow=" + firstNumLow + ", firstNumHigh=" + firstNumHigh + ", secondNumLow=" + secondNumLow + ", secondNumHigh=" + secondNumHigh + ", questionNum=" + questionNum + '}';
-    }
+
+
+
     
+    
+    
+    
+    
+    
+  
     
     public List<int[]> randomQuestion(int a1, int a2, int b1, int b2, int n){
         Random rand = new Random();
-        
+        List<int[]> randomQuestions = new ArrayList<>();
         int firstRandomNum;
         int secondRandomNum;
     
@@ -53,12 +53,16 @@ public class Questions implements Serializable {
             System.out.println("second" + secondRandomNum);
             int a[] = {firstRandomNum, secondRandomNum};
          
-            questions.add(a);         
+            randomQuestions.add(a);         
         }
  
-       return questions;
+       return randomQuestions;
 
     }
+    
+    
+    
+    
     
     
 }

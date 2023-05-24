@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 public class LoginPage extends javax.swing.JFrame {
 
-
+    public static ChildrenInfo currentChild = new ChildrenInfo();
    
 
     
@@ -216,32 +216,26 @@ public class LoginPage extends javax.swing.JFrame {
                     isChildFound = true;
                 }
             }
-           
-           
            if(isChildFound){
+               
+               
+               currentChild.setChildUsername(username);
+               
                
                String message="Child login";
                JOptionPane.showMessageDialog(this, message);
                dispose();
-               new GameScreen().setVisible(true); 
+               new GameChoice().setVisible(true); 
            }
            else{
-               
-               
+
                String message="Invalid user.";
                JOptionPane.showMessageDialog(this, message);
                
            }
-       
-           
        }
        
-           
-               
-               
-           
-           
-           
+       
     }//GEN-LAST:event_loginButtonActionPerformed
 
     

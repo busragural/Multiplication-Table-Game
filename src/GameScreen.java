@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -11,14 +12,18 @@ public class GameScreen extends javax.swing.JFrame {
 
    private Timer timer;
    
-    GameMode gameMode;
+
     List<int[]> questions;
- 
+    static Object[] rowData;
+    Questions q = new Questions();
     
-    public GameScreen() {
+        ChildrenInfo currentChild;
+    
+    public GameScreen(Object[] rowData) {
         initComponents();
-        gameMode = new GameMode();
-        //questions = gameMode.questions;
+        currentChild = LoginPage.currentChild;
+         this.rowData = rowData;
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -34,8 +39,10 @@ public class GameScreen extends javax.swing.JFrame {
         answerBtn = new javax.swing.JButton();
         timerField = new javax.swing.JTextField();
         gameGSLabel = new javax.swing.JLabel();
-        gameNumberField = new javax.swing.JTextField();
         startButton = new javax.swing.JButton();
+        lBoardButton = new javax.swing.JButton();
+        newGameButton = new javax.swing.JButton();
+        logoutBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,6 +90,7 @@ public class GameScreen extends javax.swing.JFrame {
             }
         });
 
+        timerField.setEditable(false);
         timerField.setBackground(new java.awt.Color(157, 241, 223));
         timerField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         timerField.setForeground(new java.awt.Color(163, 26, 203));
@@ -93,18 +101,6 @@ public class GameScreen extends javax.swing.JFrame {
         gameGSLabel.setForeground(new java.awt.Color(163, 26, 203));
         gameGSLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         gameGSLabel.setText("GAME");
-
-        gameNumberField.setBackground(new java.awt.Color(141, 203, 230));
-        gameNumberField.setFont(new java.awt.Font("Press Start 2P", 0, 36)); // NOI18N
-        gameNumberField.setForeground(new java.awt.Color(163, 26, 203));
-        gameNumberField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        gameNumberField.setText("1");
-        gameNumberField.setBorder(null);
-        gameNumberField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gameNumberFieldActionPerformed(evt);
-            }
-        });
 
         startButton.setBackground(new java.awt.Color(163, 26, 203));
         startButton.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
@@ -118,6 +114,42 @@ public class GameScreen extends javax.swing.JFrame {
             }
         });
 
+        lBoardButton.setBackground(new java.awt.Color(163, 26, 203));
+        lBoardButton.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
+        lBoardButton.setForeground(new java.awt.Color(255, 255, 255));
+        lBoardButton.setText("LEADERBOARD");
+        lBoardButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lBoardButton.setBorderPainted(false);
+        lBoardButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lBoardButtonActionPerformed(evt);
+            }
+        });
+
+        newGameButton.setBackground(new java.awt.Color(163, 26, 203));
+        newGameButton.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
+        newGameButton.setForeground(new java.awt.Color(255, 255, 255));
+        newGameButton.setText("NEW GAME");
+        newGameButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        newGameButton.setBorderPainted(false);
+        newGameButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newGameButtonActionPerformed(evt);
+            }
+        });
+
+        logoutBTN.setBackground(new java.awt.Color(163, 26, 203));
+        logoutBTN.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
+        logoutBTN.setForeground(new java.awt.Color(255, 255, 255));
+        logoutBTN.setText("LOG OUT");
+        logoutBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        logoutBTN.setBorderPainted(false);
+        logoutBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBTNActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout gameScreenPanelLayout = new javax.swing.GroupLayout(gameScreenPanel);
         gameScreenPanel.setLayout(gameScreenPanelLayout);
         gameScreenPanelLayout.setHorizontalGroup(
@@ -125,39 +157,43 @@ public class GameScreen extends javax.swing.JFrame {
             .addGroup(gameScreenPanelLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(gameGSLabel)
-                .addGap(18, 18, 18)
-                .addComponent(gameNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(305, 609, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(timerField, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
             .addGroup(gameScreenPanelLayout.createSequentialGroup()
                 .addGap(183, 183, 183)
-                .addComponent(firstNumberGSField, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(xGSLabel)
-                .addGap(37, 37, 37)
                 .addGroup(gameScreenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(gameScreenPanelLayout.createSequentialGroup()
-                        .addComponent(secondNumberGSField, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(equalsLabel)
-                        .addGap(28, 28, 28)
+                        .addComponent(firstNumberGSField, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(xGSLabel)
+                        .addGap(37, 37, 37)
                         .addGroup(gameScreenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(answerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(gameScreenPanelLayout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(answerField, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(secondNumberGSField, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35)
+                                .addComponent(equalsLabel)
+                                .addGap(28, 28, 28)
+                                .addGroup(gameScreenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(answerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(gameScreenPanelLayout.createSequentialGroup()
+                                        .addGap(8, 8, 8)
+                                        .addComponent(answerField, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(logoutBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(170, Short.MAX_VALUE))
+                    .addGroup(gameScreenPanelLayout.createSequentialGroup()
+                        .addComponent(newGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lBoardButton, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(370, 370, 370))))
         );
         gameScreenPanelLayout.setVerticalGroup(
             gameScreenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gameScreenPanelLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(gameScreenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(gameScreenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(gameGSLabel)
-                        .addComponent(gameNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(gameGSLabel)
                     .addComponent(timerField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -174,7 +210,12 @@ public class GameScreen extends javax.swing.JFrame {
                     .addComponent(firstNumberGSField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(answerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGroup(gameScreenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lBoardButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logoutBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -209,19 +250,15 @@ public class GameScreen extends javax.swing.JFrame {
             int gameTime = Integer.parseInt(timerField.getText());
             String message="Time to finish the game: " + gameTime + " sec.";
             JOptionPane.showMessageDialog(this, message);
+            answerBtn.enableInputMethods(true);
             
         }
         
   
     }//GEN-LAST:event_answerBtnActionPerformed
 
-    private void gameNumberFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gameNumberFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gameNumberFieldActionPerformed
-
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
         
-  
         ////timer ltfn silme////
         timer = new Timer(1000, new ActionListener() {
         int seconds = 0;
@@ -234,13 +271,18 @@ public class GameScreen extends javax.swing.JFrame {
          timer.start();
         //////////////////
          
-        //questions = FileOp.readQuestionFromFile("Questions.ser");
+        int[] choosenSettings = new int[rowData.length];
         
         
+        for (int i = 0; i < rowData.length; i++) {
+            choosenSettings[i] = (int) rowData[i];
+            System.out.println(choosenSettings[i]);
+
+        }
         
         
+        questions = q.randomQuestion(choosenSettings[0], choosenSettings[1], choosenSettings[2], choosenSettings[3], choosenSettings[4]);
         
-         
         int[] elements =questions.get(0);
         String tmp1 = String.valueOf(elements[0]);
         firstNumberGSField.setText(tmp1);
@@ -251,6 +293,22 @@ public class GameScreen extends javax.swing.JFrame {
         startButton.setVisible(false);
         
     }//GEN-LAST:event_startButtonActionPerformed
+
+    private void lBoardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lBoardButtonActionPerformed
+        dispose();
+        new Leaderboard().setVisible(true);
+    }//GEN-LAST:event_lBoardButtonActionPerformed
+
+    private void newGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameButtonActionPerformed
+        dispose();
+        new GameChoice().setVisible(true);
+    }//GEN-LAST:event_newGameButtonActionPerformed
+
+    private void logoutBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBTNActionPerformed
+        
+        dispose();
+        new LoginPage().setVisible(true);
+    }//GEN-LAST:event_logoutBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,7 +340,7 @@ public class GameScreen extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            GameScreen gameScreen= new GameScreen();
+            GameScreen gameScreen= new GameScreen(rowData);
             
             gameScreen.setSize(1000, 500);
             gameScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -296,8 +354,10 @@ public class GameScreen extends javax.swing.JFrame {
     private javax.swing.JLabel equalsLabel;
     private javax.swing.JTextField firstNumberGSField;
     private javax.swing.JLabel gameGSLabel;
-    private javax.swing.JTextField gameNumberField;
     private javax.swing.JPanel gameScreenPanel;
+    private javax.swing.JButton lBoardButton;
+    private javax.swing.JButton logoutBTN;
+    private javax.swing.JButton newGameButton;
     private javax.swing.JTextField secondNumberGSField;
     private javax.swing.JButton startButton;
     private javax.swing.JTextField timerField;

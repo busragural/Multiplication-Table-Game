@@ -9,11 +9,16 @@
  */
 public class Leaderboard extends javax.swing.JFrame {
 
+    
+        ChildrenInfo currentChild;
+        
+        
     /**
      * Creates new form Leaderboard
      */
     public Leaderboard() {
         initComponents();
+        currentChild = LoginPage.currentChild;
     }
 
     /**
@@ -28,6 +33,8 @@ public class Leaderboard extends javax.swing.JFrame {
         scorePanel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         detailTable1 = new javax.swing.JTable();
+        logoutBTN = new javax.swing.JButton();
+        newGameButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -36,16 +43,37 @@ public class Leaderboard extends javax.swing.JFrame {
         detailTable1.setBackground(new java.awt.Color(163, 26, 203));
         detailTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "speed", "truth"
+                "username", "speed", "truth", "score"
             }
         ));
         jScrollPane3.setViewportView(detailTable1);
+
+        logoutBTN.setBackground(new java.awt.Color(163, 26, 203));
+        logoutBTN.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
+        logoutBTN.setForeground(new java.awt.Color(255, 255, 255));
+        logoutBTN.setText("LOG OUT");
+        logoutBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        logoutBTN.setBorderPainted(false);
+        logoutBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBTNActionPerformed(evt);
+            }
+        });
+
+        newGameButton.setBackground(new java.awt.Color(163, 26, 203));
+        newGameButton.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
+        newGameButton.setForeground(new java.awt.Color(255, 255, 255));
+        newGameButton.setText("NEW GAME");
+        newGameButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        newGameButton.setBorderPainted(false);
+        newGameButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newGameButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout scorePanelLayout = new javax.swing.GroupLayout(scorePanel);
         scorePanel.setLayout(scorePanelLayout);
@@ -54,7 +82,11 @@ public class Leaderboard extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scorePanelLayout.createSequentialGroup()
                 .addContainerGap(325, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(304, 304, 304))
+                .addGap(91, 91, 91)
+                .addGroup(scorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(logoutBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41))
         );
         scorePanelLayout.setVerticalGroup(
             scorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -62,6 +94,12 @@ public class Leaderboard extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scorePanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(newGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(logoutBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -81,6 +119,17 @@ public class Leaderboard extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void logoutBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBTNActionPerformed
+
+        dispose();
+        new LoginPage().setVisible(true);
+    }//GEN-LAST:event_logoutBTNActionPerformed
+
+    private void newGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameButtonActionPerformed
+        dispose();
+        new GameChoice().setVisible(true);
+    }//GEN-LAST:event_newGameButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,6 +169,8 @@ public class Leaderboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable detailTable1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JButton logoutBTN;
+    private javax.swing.JButton newGameButton;
     private javax.swing.JPanel scorePanel;
     // End of variables declaration//GEN-END:variables
 }

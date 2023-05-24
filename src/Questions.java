@@ -29,16 +29,6 @@ public class Questions implements Serializable {
     }
 
 
-
-
-    
-    
-    
-    
-    
-    
-  
-    
     public List<int[]> randomQuestion(int a1, int a2, int b1, int b2, int n){
         Random rand = new Random();
         List<int[]> randomQuestions = new ArrayList<>();
@@ -60,9 +50,5 @@ public class Questions implements Serializable {
 
     }
     
-    
-    
-    
-    
-    
+
 }

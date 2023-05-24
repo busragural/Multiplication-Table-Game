@@ -19,6 +19,7 @@ public class Report extends javax.swing.JFrame {
         initComponents();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,8 +33,8 @@ public class Report extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         detailTable = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        generalTable1 = new javax.swing.JTable();
-        answerBtn = new javax.swing.JButton();
+        generalTable = new javax.swing.JTable();
+        logoutButtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,33 +53,36 @@ public class Report extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(detailTable);
-        if (detailTable.getColumnModel().getColumnCount() > 0) {
-            detailTable.getColumnModel().getColumn(1).setHeaderValue("Surname");
-        }
 
-        generalTable1.setBackground(new java.awt.Color(163, 26, 203));
-        generalTable1.setModel(new javax.swing.table.DefaultTableModel(
+        generalTable.setBackground(new java.awt.Color(163, 26, 203));
+        generalTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Username", "Games", "Start Time", "Finish Time", "Total Time"
+                "Username", "Which Game", "Start Time", "Finish Time", "Total Time", "Truth"
             }
-        ));
-        jScrollPane2.setViewportView(generalTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
 
-        answerBtn.setBackground(new java.awt.Color(157, 241, 223));
-        answerBtn.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
-        answerBtn.setForeground(new java.awt.Color(255, 255, 255));
-        answerBtn.setText("QUIT");
-        answerBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        answerBtn.setBorderPainted(false);
-        answerBtn.addActionListener(new java.awt.event.ActionListener() {
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        generalTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
+        jScrollPane2.setViewportView(generalTable);
+
+        logoutButtn.setBackground(new java.awt.Color(157, 241, 223));
+        logoutButtn.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
+        logoutButtn.setForeground(new java.awt.Color(255, 255, 255));
+        logoutButtn.setText("LOGOUT");
+        logoutButtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        logoutButtn.setBorderPainted(false);
+        logoutButtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answerBtnActionPerformed(evt);
+                logoutButtnActionPerformed(evt);
             }
         });
 
@@ -87,16 +91,15 @@ public class Report extends javax.swing.JFrame {
         reportPanelLayout.setHorizontalGroup(
             reportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(reportPanelLayout.createSequentialGroup()
-                .addGroup(reportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(reportPanelLayout.createSequentialGroup()
-                        .addGap(420, 420, 420)
-                        .addComponent(answerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(reportPanelLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(79, 79, 79)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addGap(420, 420, 420)
+                .addComponent(logoutButtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(443, Short.MAX_VALUE))
+            .addGroup(reportPanelLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(53, 53, 53))
         );
         reportPanelLayout.setVerticalGroup(
             reportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +109,7 @@ public class Report extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(answerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoutButtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
 
@@ -124,10 +127,16 @@ public class Report extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void answerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerBtnActionPerformed
+    private void logoutButtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtnActionPerformed
+        dispose();
+        new LoginPage().setVisible(true);
+    }//GEN-LAST:event_logoutButtnActionPerformed
 
-    }//GEN-LAST:event_answerBtnActionPerformed
-
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -167,11 +176,11 @@ public class Report extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton answerBtn;
     private javax.swing.JTable detailTable;
-    private javax.swing.JTable generalTable1;
+    private javax.swing.JTable generalTable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton logoutButtn;
     private javax.swing.JPanel reportPanel;
     // End of variables declaration//GEN-END:variables
 }

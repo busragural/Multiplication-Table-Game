@@ -8,15 +8,13 @@ import javax.swing.JOptionPane;
 public class GameMode extends javax.swing.JFrame {
         
     Questions q; 
-    GameChoice gc;
+     ChildrenInfo currentChild;
     public GameMode() {
         System.out.println("denemeaglicam");
         initComponents();
         System.out.println("denemedahafazlaglicam");
         q = new Questions();  
-        gc = new GameChoice();
-
-  
+        currentChild = LoginPage.currentChild;
     }
 
   
@@ -37,7 +35,7 @@ public class GameMode extends javax.swing.JFrame {
         logoutBtn = new javax.swing.JButton();
         firstNumberField2 = new javax.swing.JTextField();
         secondNumberField2 = new javax.swing.JTextField();
-        tablebtn = new javax.swing.JButton();
+        reportBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,15 +117,15 @@ public class GameMode extends javax.swing.JFrame {
         secondNumberField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         secondNumberField2.setBorder(null);
 
-        tablebtn.setBackground(new java.awt.Color(163, 26, 203));
-        tablebtn.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
-        tablebtn.setForeground(new java.awt.Color(255, 255, 255));
-        tablebtn.setText("table");
-        tablebtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tablebtn.setBorderPainted(false);
-        tablebtn.addActionListener(new java.awt.event.ActionListener() {
+        reportBtn.setBackground(new java.awt.Color(163, 26, 203));
+        reportBtn.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
+        reportBtn.setForeground(new java.awt.Color(255, 255, 255));
+        reportBtn.setText("REPORT");
+        reportBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        reportBtn.setBorderPainted(false);
+        reportBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tablebtnActionPerformed(evt);
+                reportBtnActionPerformed(evt);
             }
         });
 
@@ -162,19 +160,16 @@ public class GameMode extends javax.swing.JFrame {
                 .addGap(217, 217, 217))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
-                        .addComponent(qnLabel)
-                        .addGap(342, 342, 342))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
-                        .addComponent(questNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(248, 248, 248)
-                        .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27))))
-            .addGroup(modePanelLayout.createSequentialGroup()
-                .addGap(421, 421, 421)
-                .addComponent(tablebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(qnLabel)
+                .addGap(342, 342, 342))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(reportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(questNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(248, 248, 248)
+                .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
         modePanelLayout.setVerticalGroup(
             modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,9 +181,7 @@ public class GameMode extends javax.swing.JFrame {
                     .addGroup(modePanelLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(newUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(53, 53, 53)
-                .addComponent(tablebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
                 .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(fnLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(snLabel, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -213,7 +206,9 @@ public class GameMode extends javax.swing.JFrame {
                         .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
-                        .addComponent(questNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(questNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(reportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(36, 36, 36))))
         );
 
@@ -262,11 +257,7 @@ public class GameMode extends javax.swing.JFrame {
         }
         
         String message="Game is saved.";
-        JOptionPane.showMessageDialog(this, message);
-
-          
-        gc.setTableData(a1, a2, b1, b2, N);
-        //gc.setVisible(true);
+        JOptionPane.showMessageDialog(this, message);  
 
     }//GEN-LAST:event_saveBtnActionPerformed
 
@@ -277,18 +268,12 @@ public class GameMode extends javax.swing.JFrame {
         new LoginPage().setVisible(true);
     }//GEN-LAST:event_logoutBtnActionPerformed
 
-
-    
-    
-    private void tablebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tablebtnActionPerformed
-        
+    private void reportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportBtnActionPerformed
         dispose();
-        gc.setVisible(true);
-        
-       
-    }//GEN-LAST:event_tablebtnActionPerformed
+        new Report().setVisible(true);
+    }//GEN-LAST:event_reportBtnActionPerformed
 
- 
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -333,11 +318,11 @@ public class GameMode extends javax.swing.JFrame {
     private javax.swing.JLabel newUserLabel;
     private javax.swing.JLabel qnLabel;
     private javax.swing.JTextField questNumberField;
+    private javax.swing.JButton reportBtn;
     private javax.swing.JButton saveBtn;
     private javax.swing.JTextField secondNumberField1;
     private javax.swing.JTextField secondNumberField2;
     private javax.swing.JLabel snLabel;
-    private javax.swing.JButton tablebtn;
     private javax.swing.JLabel xLabel;
     // End of variables declaration//GEN-END:variables
 }

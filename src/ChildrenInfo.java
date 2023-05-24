@@ -13,6 +13,29 @@ public class ChildrenInfo implements Serializable  {
         this.childUsername = childUsername;
         this.childPassword = childPassword;
     }
+    public ChildrenInfo(){
+        
+    }
+
+    public String getChildUsername() {
+        return childUsername;
+    }
+
+    public String getChildPassword() {
+        return childPassword;
+    }
+
+    public void setChildUsername(String childUsername) {
+        this.childUsername = childUsername;
+    }
+
+    public void setChildPassword(String childPassword) {
+        this.childPassword = childPassword;
+    }
+    
+    
+    
+    
 
     @Override
     public String toString() {

@@ -3,44 +3,35 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
-/**
- *
- * @author BusraGural
- */
 public class GameChoice extends javax.swing.JFrame {
-    
+
     DefaultTableModel table;
     Object[] rowData;
     private List<Questions> exerciseList;
     ChildrenInfo currentChild;
-    
+
     public GameChoice() {
         initComponents();
-        
+
         currentChild = LoginPage.currentChild;
-        
+
         exerciseList = new ArrayList<>();
         exerciseList = FileOp.readQuestionFromFile("Settings.ser");
-        table  = (DefaultTableModel) gameListTable1.getModel();
-        rowData = new Object[5];
-        Object[] row = new Object[5];
-        
+        table = (DefaultTableModel) gameListTable1.getModel();
+        rowData = new Object[6];
+        Object[] row = new Object[6];
+
         for (Questions questions : exerciseList) {
             row[0] = questions.settings[0];
             row[1] = questions.settings[1];
             row[2] = questions.settings[2];
             row[3] = questions.settings[3];
             row[4] = questions.settings[4];
+            row[5] = questions.settings[5];
             table.addRow(row);
-        }     
+        }
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -49,7 +40,7 @@ public class GameChoice extends javax.swing.JFrame {
         start2Button = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         gameListTable1 = new javax.swing.JTable();
-        backBtn = new javax.swing.JButton();
+        logoutBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,11 +64,11 @@ public class GameChoice extends javax.swing.JFrame {
 
             },
             new String [] {
-                "a(min)", "a(max)", "b(min)", "b(max)T", "exercises number"
+                "A(min)", "A(max)", "B(min)", "B(max)", "# Games", "id"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -85,20 +76,22 @@ public class GameChoice extends javax.swing.JFrame {
             }
         });
         gameListTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        gameListTable1.setGridColor(new java.awt.Color(255, 51, 0));
         gameListTable1.setSelectionBackground(new java.awt.Color(163, 26, 203));
+        gameListTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         gameListTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(gameListTable1);
         gameListTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        backBtn.setBackground(new java.awt.Color(163, 26, 203));
-        backBtn.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
-        backBtn.setForeground(new java.awt.Color(255, 255, 255));
-        backBtn.setText("BACK");
-        backBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        backBtn.setBorderPainted(false);
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
+        logoutBtn.setBackground(new java.awt.Color(163, 26, 203));
+        logoutBtn.setFont(new java.awt.Font("Press Start 2P", 0, 14)); // NOI18N
+        logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
+        logoutBtn.setText("LOGOUT");
+        logoutBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        logoutBtn.setBorderPainted(false);
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
+                logoutBtnActionPerformed(evt);
             }
         });
 
@@ -107,26 +100,29 @@ public class GameChoice extends javax.swing.JFrame {
         gameCoicePanelLayout.setHorizontalGroup(
             gameCoicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gameCoicePanelLayout.createSequentialGroup()
-                .addGap(131, 131, 131)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                .addGroup(gameCoicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(start2Button, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                    .addComponent(backBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(235, Short.MAX_VALUE)
+                .addGroup(gameCoicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gameCoicePanelLayout.createSequentialGroup()
+                        .addComponent(start2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(292, 292, 292)
+                        .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gameCoicePanelLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(224, 224, 224))))
         );
         gameCoicePanelLayout.setVerticalGroup(
             gameCoicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gameCoicePanelLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(start2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gameCoicePanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90)
-                .addComponent(start2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105))
-            .addGroup(gameCoicePanelLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -142,35 +138,31 @@ public class GameChoice extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    
-    
+
+
     private void start2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start2ButtonActionPerformed
-        
-        int selectedRow = gameListTable1.getSelectedRow(); 
-        if (selectedRow != -1) { 
-            rowData = new Object[table.getColumnCount()]; 
+
+        int selectedRow = gameListTable1.getSelectedRow();
+        if (selectedRow != -1) {
+            rowData = new Object[table.getColumnCount()];
 
             for (int i = 0; i < rowData.length; i++) {
-                rowData[i] = table.getValueAt(selectedRow, i); 
+                rowData[i] = table.getValueAt(selectedRow, i);
                 System.out.println(rowData[i]);
             }
         }
-        
+
         dispose();
-        GameScreen gameScreen = new GameScreen(rowData); // Seçilen değerleri GameScreen sınıfına aktarın
+        GameScreen gameScreen = new GameScreen(rowData, exerciseList); 
         gameScreen.setVisible(true);
- 
+
     }//GEN-LAST:event_start2ButtonActionPerformed
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         dispose();
-        new GameMode().setVisible(true);
-    }//GEN-LAST:event_backBtnActionPerformed
+        new LoginPage().setVisible(true);
+    }//GEN-LAST:event_logoutBtnActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -202,12 +194,11 @@ public class GameChoice extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backBtn;
     private javax.swing.JPanel gameCoicePanel;
     private javax.swing.JTable gameListTable1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton logoutBtn;
     private javax.swing.JButton start2Button;
     // End of variables declaration//GEN-END:variables
-
 
 }

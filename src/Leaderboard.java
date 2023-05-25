@@ -1,24 +1,66 @@
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author BusraGural
  */
 public class Leaderboard extends javax.swing.JFrame {
 
-    
-        ChildrenInfo currentChild;
-        
-        
-    /**
-     * Creates new form Leaderboard
-     */
-    public Leaderboard() {
+    ChildrenInfo currentChild;
+    static Object[] rowData;
+    private List<Object[]> scoreForTable;
+    DefaultTableModel table;
+    static int score;
+    List<Questions> settList;
+
+    public Leaderboard(Object[] rowData, int score) {
         initComponents();
         currentChild = LoginPage.currentChild;
+        this.rowData = rowData;
+        this.score = score;
+
+        settList = FileOp.readQuestionFromFile("Settings.ser");
+
+        String[] info = {currentChild.getChildUsername(), String.valueOf(score)};
+
+        settList.get(Integer.parseInt(rowData[5].toString())).highScores.add(info);
+
+        FileOp.writeQuestionToFile(settList, "Settings.ser");
+
+        scoreForTable = new ArrayList<>(settList.get(Integer.parseInt(rowData[5].toString())).highScores.size());
+
+        for (String[] string : settList.get(Integer.parseInt(rowData[5].toString())).highScores) {
+            scoreForTable.add(string);
+        }
+
+        table = (DefaultTableModel) scoreTable.getModel();
+
+        rowData = new Object[2];
+        Object[] row = new Object[2];
+
+        for (Object[] str : scoreForTable) {
+            row[0] = str[0];
+            row[1] = str[1];
+
+            table.addRow(row);
+        }
+
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(table);
+        scoreTable.setRowSorter(sorter);
+        sorter.setComparator(1, Comparator.reverseOrder());
+        sorter.setSortKeys(List.of(new RowSorter.SortKey(1, SortOrder.ASCENDING))); // 
+        sorter.sort();
     }
 
     /**
@@ -32,28 +74,30 @@ public class Leaderboard extends javax.swing.JFrame {
 
         scorePanel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        detailTable1 = new javax.swing.JTable();
+        scoreTable = new javax.swing.JTable();
         logoutBTN = new javax.swing.JButton();
         newGameButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1000, 500));
+        setResizable(false);
 
         scorePanel.setBackground(new java.awt.Color(141, 203, 230));
 
-        detailTable1.setBackground(new java.awt.Color(163, 26, 203));
-        detailTable1.setModel(new javax.swing.table.DefaultTableModel(
+        scoreTable.setBackground(new java.awt.Color(163, 26, 203));
+        scoreTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "username", "speed", "truth", "score"
+                "username", "score"
             }
         ));
-        jScrollPane3.setViewportView(detailTable1);
+        jScrollPane3.setViewportView(scoreTable);
 
-        logoutBTN.setBackground(new java.awt.Color(163, 26, 203));
+        logoutBTN.setBackground(new java.awt.Color(157, 241, 223));
         logoutBTN.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
-        logoutBTN.setForeground(new java.awt.Color(255, 255, 255));
+        logoutBTN.setForeground(new java.awt.Color(163, 26, 203));
         logoutBTN.setText("LOG OUT");
         logoutBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         logoutBTN.setBorderPainted(false);
@@ -63,9 +107,9 @@ public class Leaderboard extends javax.swing.JFrame {
             }
         });
 
-        newGameButton.setBackground(new java.awt.Color(163, 26, 203));
+        newGameButton.setBackground(new java.awt.Color(157, 241, 223));
         newGameButton.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
-        newGameButton.setForeground(new java.awt.Color(255, 255, 255));
+        newGameButton.setForeground(new java.awt.Color(163, 26, 203));
         newGameButton.setText("NEW GAME");
         newGameButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         newGameButton.setBorderPainted(false);
@@ -80,26 +124,25 @@ public class Leaderboard extends javax.swing.JFrame {
         scorePanelLayout.setHorizontalGroup(
             scorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scorePanelLayout.createSequentialGroup()
-                .addContainerGap(325, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91)
-                .addGroup(scorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(logoutBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(newGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(scorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(scorePanelLayout.createSequentialGroup()
+                        .addComponent(newGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(logoutBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(304, 304, 304))
         );
         scorePanelLayout.setVerticalGroup(
             scorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(scorePanelLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scorePanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(newGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(logoutBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(scorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(newGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logoutBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,18 +202,16 @@ public class Leaderboard extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Leaderboard().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Leaderboard(rowData, score).setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable detailTable1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton logoutBTN;
     private javax.swing.JButton newGameButton;
     private javax.swing.JPanel scorePanel;
+    private javax.swing.JTable scoreTable;
     // End of variables declaration//GEN-END:variables
 }

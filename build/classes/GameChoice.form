@@ -44,30 +44,35 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" pref="541" max="-2" attributes="0"/>
-                  <EmptySpace pref="93" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="start2Button" pref="137" max="32767" attributes="0"/>
-                      <Component id="backBtn" max="32767" attributes="0"/>
+                  <EmptySpace pref="235" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="start2Button" min="-2" pref="137" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="292" max="-2" attributes="0"/>
+                          <Component id="logoutBtn" min="-2" pref="109" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jScrollPane2" min="-2" pref="541" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="98" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="358" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="start2Button" min="-2" pref="39" max="-2" attributes="0"/>
+                  <EmptySpace pref="50" max="32767" attributes="0"/>
+              </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="backBtn" min="-2" pref="41" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                  <Component id="start2Button" min="-2" pref="39" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="40" max="32767" attributes="0"/>
+                  <Component id="logoutBtn" min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -109,12 +114,13 @@
                   <Color blue="e6" green="cb" red="8d" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="0">
-                    <Column editable="false" title="a(min)" type="java.lang.Object"/>
-                    <Column editable="false" title="a(max)" type="java.lang.Object"/>
-                    <Column editable="false" title="b(min)" type="java.lang.Object"/>
-                    <Column editable="false" title="b(max)T" type="java.lang.Object"/>
-                    <Column editable="false" title="exercises number" type="java.lang.Object"/>
+                  <Table columnCount="6" rowCount="0">
+                    <Column editable="false" title="A(min)" type="java.lang.Object"/>
+                    <Column editable="false" title="A(max)" type="java.lang.Object"/>
+                    <Column editable="false" title="B(min)" type="java.lang.Object"/>
+                    <Column editable="false" title="B(max)" type="java.lang.Object"/>
+                    <Column editable="false" title="# Games" type="java.lang.Object"/>
+                    <Column editable="true" title="id" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -144,14 +150,24 @@
                       <Editor/>
                       <Renderer/>
                     </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                   </TableColumnModel>
                 </Property>
+                <Property name="columnSelectionAllowed" type="boolean" value="true"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Hand Cursor"/>
+                </Property>
+                <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="33" red="ff" type="rgb"/>
                 </Property>
                 <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cb" green="1a" red="a3" type="rgb"/>
                 </Property>
+                <Property name="selectionMode" type="int" value="0"/>
                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                   <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                 </Property>
@@ -159,18 +175,18 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="backBtn">
+        <Component class="javax.swing.JButton" name="logoutBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cb" green="1a" red="a3" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Press Start 2P" size="18" style="0"/>
+              <Font name="Press Start 2P" size="14" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="BACK"/>
+            <Property name="text" type="java.lang.String" value="LOGOUT"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                 <BevelBorder/>
@@ -179,7 +195,7 @@
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backBtnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutBtnActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

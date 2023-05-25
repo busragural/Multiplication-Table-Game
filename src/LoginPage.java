@@ -1,20 +1,15 @@
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-
 public class LoginPage extends javax.swing.JFrame {
 
     public static ChildrenInfo currentChild = new ChildrenInfo();
-   
 
-    
     public LoginPage() {
         initComponents();
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -24,25 +19,24 @@ public class LoginPage extends javax.swing.JFrame {
         passwordField = new javax.swing.JPasswordField();
         usernameField = new javax.swing.JTextField();
         loginButton = new javax.swing.JButton();
-        registerPanel = new javax.swing.JPanel();
-        lastNameField = new javax.swing.JTextField();
-        firstNameField = new javax.swing.JTextField();
-        usernameRegField = new javax.swing.JTextField();
-        registerButton = new javax.swing.JButton();
-        passwordRegField = new javax.swing.JPasswordField();
-        newUserLabel = new javax.swing.JLabel();
         mtgLabel = new javax.swing.JLabel();
+        goRegisterBtn = new javax.swing.JButton();
+        mtgLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         backgroundPanel.setBackground(new java.awt.Color(141, 203, 230));
         backgroundPanel.setPreferredSize(new java.awt.Dimension(820, 450));
 
         passwordField.setBackground(new java.awt.Color(141, 203, 230));
+        passwordField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         passwordField.setForeground(new java.awt.Color(255, 255, 255));
         passwordField.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(227, 246, 255), 2, true), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(227, 246, 255))); // NOI18N
 
         usernameField.setBackground(new java.awt.Color(141, 203, 230));
+        usernameField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         usernameField.setForeground(new java.awt.Color(255, 255, 255));
         usernameField.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(227, 246, 255), 2, true), "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(227, 246, 255))); // NOI18N
 
@@ -58,118 +52,89 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
-        registerPanel.setBackground(new java.awt.Color(157, 241, 223));
-
-        lastNameField.setBackground(new java.awt.Color(157, 241, 223));
-        lastNameField.setForeground(new java.awt.Color(0, 0, 0));
-        lastNameField.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(163, 26, 203), 2, true), "Last Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(163, 26, 203))); // NOI18N
-
-        firstNameField.setBackground(new java.awt.Color(157, 241, 223));
-        firstNameField.setForeground(new java.awt.Color(0, 0, 0));
-        firstNameField.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(163, 26, 203), 2, true), "First Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(163, 26, 203))); // NOI18N
-
-        usernameRegField.setBackground(new java.awt.Color(157, 241, 223));
-        usernameRegField.setForeground(new java.awt.Color(0, 0, 0));
-        usernameRegField.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(163, 26, 203), 2, true), "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(163, 26, 203))); // NOI18N
-
-        registerButton.setBackground(new java.awt.Color(141, 203, 230));
-        registerButton.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
-        registerButton.setForeground(new java.awt.Color(255, 255, 255));
-        registerButton.setText("REGISTER");
-        registerButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        registerButton.setBorderPainted(false);
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerButtonActionPerformed(evt);
-            }
-        });
-
-        passwordRegField.setBackground(new java.awt.Color(157, 241, 223));
-        passwordRegField.setForeground(new java.awt.Color(0, 0, 0));
-        passwordRegField.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(163, 26, 203), 2, true), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(163, 26, 203))); // NOI18N
-
-        newUserLabel.setFont(new java.awt.Font("Press Start 2P", 0, 20)); // NOI18N
-        newUserLabel.setForeground(new java.awt.Color(141, 203, 230));
-        newUserLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        newUserLabel.setText("NEW USER");
-
-        javax.swing.GroupLayout registerPanelLayout = new javax.swing.GroupLayout(registerPanel);
-        registerPanel.setLayout(registerPanelLayout);
-        registerPanelLayout.setHorizontalGroup(
-            registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPanelLayout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
-                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(registerPanelLayout.createSequentialGroup()
-                            .addGap(13, 13, 13)
-                            .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(passwordRegField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(usernameRegField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(newUserLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44))
-        );
-        registerPanelLayout.setVerticalGroup(
-            registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPanelLayout.createSequentialGroup()
-                .addContainerGap(74, Short.MAX_VALUE)
-                .addComponent(newUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(usernameRegField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(passwordRegField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63))
-        );
-
-        mtgLabel.setFont(new java.awt.Font("Press Start 2P", 0, 24)); // NOI18N
+        mtgLabel.setFont(new java.awt.Font("Press Start 2P", 0, 33)); // NOI18N
         mtgLabel.setForeground(new java.awt.Color(255, 255, 255));
         mtgLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mtgLabel.setText("MULTIPLICATION TABLE GAME");
+
+        goRegisterBtn.setBackground(new java.awt.Color(141, 203, 230));
+        goRegisterBtn.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        goRegisterBtn.setForeground(new java.awt.Color(163, 26, 203));
+        goRegisterBtn.setText("Register Now");
+        goRegisterBtn.setBorder(null);
+        goRegisterBtn.setBorderPainted(false);
+        goRegisterBtn.setContentAreaFilled(false);
+        goRegisterBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        goRegisterBtn.setFocusPainted(false);
+        goRegisterBtn.setFocusable(false);
+        goRegisterBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        goRegisterBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goRegisterBtnActionPerformed(evt);
+            }
+        });
+
+        mtgLabel1.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
+        mtgLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        mtgLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mtgLabel1.setText("How to play");
+
+        jButton1.setBackground(new java.awt.Color(141, 203, 230));
+        jButton1.setFont(new java.awt.Font("Press Start 2P", 0, 36)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(157, 241, 223));
+        jButton1.setText("?");
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addComponent(registerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87)
+                .addComponent(mtgLabel)
+                .addContainerGap(93, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(backgroundPanelLayout.createSequentialGroup()
-                        .addGap(207, 207, 207)
-                        .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(backgroundPanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(mtgLabel))
-                    .addGroup(backgroundPanelLayout.createSequentialGroup()
-                        .addGap(193, 193, 193)
-                        .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
+                        .addComponent(goRegisterBtn)
+                        .addGap(425, 425, 425))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
+                        .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(loginButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                            .addComponent(passwordField)
+                            .addComponent(usernameField, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(363, 363, 363))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
+                        .addComponent(mtgLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addContainerGap())))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addGap(64, 64, 64)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
                 .addComponent(mtgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
+                .addGap(57, 57, 57)
                 .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(48, 48, 48)
                 .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(registerPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(goRegisterBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addComponent(mtgLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE))
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -187,77 +152,57 @@ public class LoginPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        
+
         String username = usernameField.getText();
-        String password = new String( passwordField.getPassword());
-        
-       
-       if("par".equals(username) && "123".equals(password)){
-           
-           String message="Parent login.";
-           JOptionPane.showMessageDialog(this, message);
-           dispose();
-           new GameMode().setVisible(true); 
-       }
-      
-       else{
-           
-           ChildrenInfo isThereChild = new ChildrenInfo(username, password);
-           
-           List<ChildrenInfo> childInfo = FileOp.readChildFromFile("ChildrenInfo.ser");
-           
-           System.out.println(childInfo);
-           
-           boolean isChildFound = false;
+        String password = new String(passwordField.getPassword());
+
+        if ("par".equals(username) && "123".equals(password)) {
+
+            String message = "Parent login.";
+            JOptionPane.showMessageDialog(this, message);
+            dispose();
+            new GameMode().setVisible(true);
+        } else {
+
+            ChildrenInfo isThereChild = new ChildrenInfo(username, password);
+
+            List<ChildrenInfo> childInfo = FileOp.readChildFromFile("ChildrenInfo.ser");
+
+            System.out.println(childInfo);
+
+            boolean isChildFound = false;
             for (ChildrenInfo child : childInfo) {
-                
+
                 if (child.equals(isThereChild)) {
-                  
+
                     isChildFound = true;
                 }
             }
-           if(isChildFound){
-               
-               
-               currentChild.setChildUsername(username);
-               
-               
-               String message="Child login";
-               JOptionPane.showMessageDialog(this, message);
-               dispose();
-               new GameChoice().setVisible(true); 
-           }
-           else{
+            if (isChildFound) {
 
-               String message="Invalid user.";
-               JOptionPane.showMessageDialog(this, message);
-               
-           }
-       }
-       
-       
+                currentChild.setChildUsername(username);
+
+                String message = "Child login";
+                JOptionPane.showMessageDialog(this, message);
+                dispose();
+                new GameChoice().setVisible(true);
+            } else {
+
+                String message = "Invalid user.";
+                JOptionPane.showMessageDialog(this, message);
+
+            }
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    
-    
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        
-        String username = usernameRegField.getText();
-        String password = new String(passwordRegField.getPassword());
-        
-        List<ChildrenInfo> tmp = FileOp.readChildFromFile("ChildrenInfo.ser");
-        
-        ChildrenInfo child = new ChildrenInfo(username, password);
-        tmp.add(child);
-        
-        FileOp.writeChildToFile(tmp, "ChildrenInfo.ser");
-        System.out.println(tmp);
-        
-    }//GEN-LAST:event_registerButtonActionPerformed
+    private void goRegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goRegisterBtnActionPerformed
+        new Register().setVisible(true);
+    }//GEN-LAST:event_goRegisterBtnActionPerformed
 
-   
-    
-    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new HowToPlay().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -285,28 +230,23 @@ public class LoginPage extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            LoginPage loginPage= new LoginPage();
-            
+            LoginPage loginPage = new LoginPage();
+
             loginPage.setSize(1000, 500);
             loginPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             loginPage.setVisible(true);
         });
     }
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanel;
-    private javax.swing.JTextField firstNameField;
-    private javax.swing.JTextField lastNameField;
+    private javax.swing.JButton goRegisterBtn;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel mtgLabel;
-    private javax.swing.JLabel newUserLabel;
+    private javax.swing.JLabel mtgLabel1;
     private javax.swing.JPasswordField passwordField;
-    private javax.swing.JPasswordField passwordRegField;
-    private javax.swing.JButton registerButton;
-    private javax.swing.JPanel registerPanel;
     private javax.swing.JTextField usernameField;
-    private javax.swing.JTextField usernameRegField;
     // End of variables declaration//GEN-END:variables
 }

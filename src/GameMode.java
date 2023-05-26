@@ -1,7 +1,9 @@
 
+import java.awt.Component;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 public class GameMode extends javax.swing.JFrame {
 
@@ -35,6 +37,7 @@ public class GameMode extends javax.swing.JFrame {
         reportBtn = new javax.swing.JButton();
         fnLabel1 = new javax.swing.JLabel();
         snLabel1 = new javax.swing.JLabel();
+        listBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,14 +139,22 @@ public class GameMode extends javax.swing.JFrame {
         snLabel1.setForeground(new java.awt.Color(163, 26, 203));
         snLabel1.setText("B(max)");
 
+        listBtn.setBackground(new java.awt.Color(163, 26, 203));
+        listBtn.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
+        listBtn.setForeground(new java.awt.Color(255, 255, 255));
+        listBtn.setText("LIST");
+        listBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        listBtn.setBorderPainted(false);
+        listBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout modePanelLayout = new javax.swing.GroupLayout(modePanel);
         modePanel.setLayout(modePanelLayout);
         modePanelLayout.setHorizontalGroup(
             modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(reportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 833, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
                 .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(modePanelLayout.createSequentialGroup()
@@ -164,8 +175,10 @@ public class GameMode extends javax.swing.JFrame {
                         .addComponent(fnLabel1)
                         .addGap(78, 450, Short.MAX_VALUE)))
                 .addGap(140, 140, 140))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(modePanelLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(reportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
                         .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,7 +189,10 @@ public class GameMode extends javax.swing.JFrame {
                         .addGap(338, 338, 338))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
                         .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(modePanelLayout.createSequentialGroup()
+                                .addComponent(listBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(modePanelLayout.createSequentialGroup()
                                 .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(snLabel)
@@ -223,7 +239,8 @@ public class GameMode extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(reportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(reportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(listBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(21, 21, 21))
                     .addGroup(modePanelLayout.createSequentialGroup()
                         .addGap(13, 13, 13)
@@ -247,6 +264,7 @@ public class GameMode extends javax.swing.JFrame {
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         
+        
         String input1 = firstNumberField1.getText();
         int a1 = Integer.parseInt(input1);
         String input2 = firstNumberField2.getText();
@@ -260,19 +278,39 @@ public class GameMode extends javax.swing.JFrame {
         String input5 = questNumberField.getText();
         int N = Integer.parseInt(input5);
 
-        int[] tmp = {a1, a2, b1, b2, N,0};
-
-        q.makeOneSetting(tmp);
-        List<Questions> tmpL = FileOp.readQuestionFromFile("Settings.ser");
-        tmpL.add(q);
-        FileOp.writeQuestionToFile(tmpL, "Settings.ser");
-
-        for (Questions element : tmpL) {
-            System.out.println(element);
+        if(a2 <= a1 || b2 <= b1 || N == 0 || a1 <= 0 || b1 <= 0){
+            String message = "Please enter valid values.";
+            JOptionPane.showMessageDialog(this, message);            
         }
+        else{
+            int[] tmp = {a1, a2, b1, b2, N,0};
 
-        String message = "Game is saved.";
-        JOptionPane.showMessageDialog(this, message);
+            q.makeOneSetting(tmp);
+            List<Questions> tmpL = FileOp.readQuestionFromFile("Settings.ser");
+            tmpL.add(q);
+            FileOp.writeQuestionToFile(tmpL, "Settings.ser");
+
+            for (Questions element : tmpL) {
+                System.out.println("elements: "+element);
+            }
+
+            String message = "Game is saved.";
+            JOptionPane.showMessageDialog(this, message);
+
+            
+           
+            Component[] components = modePanel.getComponents();
+            for (Component component : components) {
+                if(component instanceof JTextField){
+                    JTextField tf = (JTextField) component;
+                    tf.setText("");
+                }
+                
+            }
+            
+        }
+        
+        
 
     }//GEN-LAST:event_saveBtnActionPerformed
 
@@ -287,6 +325,11 @@ public class GameMode extends javax.swing.JFrame {
         dispose();
         new Report().setVisible(true);
     }//GEN-LAST:event_reportBtnActionPerformed
+
+    private void listBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listBtnActionPerformed
+        dispose();
+        new GameChoice().setVisible(true);
+    }//GEN-LAST:event_listBtnActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -328,6 +371,7 @@ public class GameMode extends javax.swing.JFrame {
     private javax.swing.JTextField firstNumberField2;
     private javax.swing.JLabel fnLabel;
     private javax.swing.JLabel fnLabel1;
+    private javax.swing.JButton listBtn;
     private javax.swing.JButton logoutBtn;
     private javax.swing.JPanel modePanel;
     private javax.swing.JLabel newUserLabel;

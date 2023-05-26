@@ -14,7 +14,7 @@ public class GameChoice extends javax.swing.JFrame {
         initComponents();
 
         currentChild = LoginPage.currentChild;
-
+        
         exerciseList = new ArrayList<>();
         exerciseList = FileOp.readQuestionFromFile("Settings.ser");
         table = (DefaultTableModel) gameListTable1.getModel();
@@ -30,6 +30,11 @@ public class GameChoice extends javax.swing.JFrame {
             row[5] = questions.settings[5];
             table.addRow(row);
         }
+          
+        if(currentChild.getChildUsername() == null){     
+            start2Button.setText("BACK");           
+        }
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -64,7 +69,7 @@ public class GameChoice extends javax.swing.JFrame {
 
             },
             new String [] {
-                "A(min)", "A(max)", "B(min)", "B(max)", "# Games", "id"
+                "A(min)", "A(max)", "B(min)", "B(max)", "# Games", "ID"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -75,6 +80,7 @@ public class GameChoice extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        gameListTable1.setColumnSelectionAllowed(true);
         gameListTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         gameListTable1.setGridColor(new java.awt.Color(255, 51, 0));
         gameListTable1.setSelectionBackground(new java.awt.Color(163, 26, 203));
@@ -142,19 +148,26 @@ public class GameChoice extends javax.swing.JFrame {
 
     private void start2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start2ButtonActionPerformed
 
-        int selectedRow = gameListTable1.getSelectedRow();
-        if (selectedRow != -1) {
-            rowData = new Object[table.getColumnCount()];
+        if(currentChild.getChildUsername() != null){
+            int selectedRow = gameListTable1.getSelectedRow();
+            if (selectedRow != -1) {
+                rowData = new Object[table.getColumnCount()];
 
-            for (int i = 0; i < rowData.length; i++) {
-                rowData[i] = table.getValueAt(selectedRow, i);
-                System.out.println(rowData[i]);
+                for (int i = 0; i < rowData.length; i++) {
+                    rowData[i] = table.getValueAt(selectedRow, i);
+                    System.out.println(rowData[i]);
+                }
             }
-        }
 
-        dispose();
-        GameScreen gameScreen = new GameScreen(rowData, exerciseList); 
-        gameScreen.setVisible(true);
+            dispose();
+            GameScreen gameScreen = new GameScreen(rowData, exerciseList); 
+            gameScreen.setVisible(true);
+        }
+        else{
+            dispose();
+            new GameMode().setVisible(true);
+        }
+        
 
     }//GEN-LAST:event_start2ButtonActionPerformed
 

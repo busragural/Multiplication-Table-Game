@@ -9,7 +9,7 @@ import java.util.List;
 
 
 public class FileOp {
-    //////////CHILD
+    
     public static void writeChildToFile(List<ChildrenInfo> childrenList, String fileName) {
       
         try (FileOutputStream fileOut = new FileOutputStream(fileName);
@@ -42,39 +42,17 @@ public class FileOp {
             return childrenList;
     }
 
-    /////////////
-  
-    public static void writeSettingsToFile(List<List<int[]>> settings, String fileName) {
-      
-        try (FileOutputStream fileOut = new FileOutputStream(fileName);
-            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
-                objectOut.writeObject(settings);
-                System.out.println("okay.");
-            } catch (IOException e) {
-                System.out.println("Error: " + e.getMessage());
-            }
-    }
-    
-      public static List<List<int[]>> readSettingsFromFile(String fileName) {
-        
-        List<List<int[]>> settings = new ArrayList<>();
-            try (FileInputStream fileIn = new FileInputStream(fileName);
-                ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
-
-                settings = (List<List<int[]>>) objectIn.readObject();
-                
-            } catch (IOException | ClassNotFoundException e) {
-                System.out.println("Error: " + e.getMessage());
-            }
-            return settings;
-    }
-    
-      
+   
           
     public static void writeQuestionToFile(List<Questions> qList, String fileName) {
-      
+      int id = 0;
         try (FileOutputStream fileOut = new FileOutputStream(fileName);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
+            
+            for (Questions questions : qList) {
+                questions.settings[5] = id;
+                id++;
+            }
                 objectOut.writeObject(qList);
                 System.out.println("okay.");
             } catch (IOException e) {

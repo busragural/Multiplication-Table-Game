@@ -303,6 +303,7 @@ public class GameScreen extends javax.swing.JFrame {
             }
 
             String reportGeneral = currentChild.getChildUsername() + ","
+                    + rowDataString[5] + ","
                     + rowDataString[0] + "-"
                     + rowDataString[1] + "-"
                     + rowDataString[2] + "-"
@@ -315,11 +316,8 @@ public class GameScreen extends javax.swing.JFrame {
 
             for (int i = 0; i < questionsForFile.size(); i++) {
                 String reportSpecial = currentChild.getChildUsername() + ","
-                        + rowDataString[0] + "-"
-                        + rowDataString[1] + "-"
-                        + rowDataString[2] + "-"
-                        + rowDataString[3] + "-"
-                        + rowDataString[4] + ","
+                       
+                        + rowDataString[5] + ","
                         + questionsForFile.get(i)[0] + "x" + questionsForFile.get(i)[1] + ","
                         + givenAnswers[i] + ","
                         + ((questionsForFile.get(i)[3] == 1) ? "T" : "F") + ","
@@ -359,15 +357,6 @@ public class GameScreen extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(this, message, "GAME OVER", INFORMATION_MESSAGE);
             
-//            String scoreTable = currentChild.getChildUsername() + ","
-//                    + score;
-//
-//            try {
-//                FileOp.writeReportToFile("Scores.csv", scoreTable);
-//            } catch (IOException ex) {
-//                Logger.getLogger(GameScreen.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-
             lBoardButton.setVisible(true);
             logoutBTN.setVisible(true);
             newGameButton.setVisible(true);

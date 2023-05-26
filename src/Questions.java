@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class Questions implements Serializable {
     private static final long serialVersionUID = 1L;
-    int settingID =0;
+    //int settingID =0;
   
     int[] settings;
     List<String[]> highScores;
@@ -23,10 +23,6 @@ public class Questions implements Serializable {
     
     public void makeOneSetting(int[] range){
        settings = range;
-       settings[5] = settingID;
-       settingID++;
-       
-       
     }
 
 

@@ -15,8 +15,8 @@ public class Report extends javax.swing.JFrame {
         reportForTable = FileOp.readReportFromFile("GeneralReport.csv");
         
         table = (DefaultTableModel) generalTable.getModel();
-        rowData = new Object[5];
-        Object[] row = new Object[5];
+        rowData = new Object[6];
+        Object[] row = new Object[6];
         
         for (Object[] str : reportForTable) {
             row[0] = str[0];
@@ -24,6 +24,7 @@ public class Report extends javax.swing.JFrame {
             row[2] = str[2];
             row[3] = str[3];
             row[4] = str[4];
+            row[5] = str[5];
             
             table.addRow(row);            
         }
@@ -70,7 +71,7 @@ public class Report extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Username", "a-a-b-b-#", "Question", "Given Answer", "T/F", "Time"
+                "Username", "GameID", "Question", "Given Answer", "T/F", "Time"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -91,11 +92,11 @@ public class Report extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Username", "a-a-b-b-#", "Start Time", "Total Time", "Truth"
+                "Username", "GameID", "a-a-b-b-#", "Start Time", "Total Time", "Truth"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, true, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

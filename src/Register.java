@@ -1,5 +1,6 @@
 
 import java.util.List;
+import javax.swing.JOptionPane;
 
 
 public class Register extends javax.swing.JFrame {
@@ -122,6 +123,9 @@ public class Register extends javax.swing.JFrame {
 
         FileOp.writeChildToFile(tmp, "ChildrenInfo.ser");
         System.out.println(tmp);
+        
+        String message = "Registered.";
+        JOptionPane.showMessageDialog(this, message);
 
     }//GEN-LAST:event_registerButtonActionPerformed
 

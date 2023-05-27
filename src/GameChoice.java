@@ -12,8 +12,13 @@ public class GameChoice extends javax.swing.JFrame {
 
     public GameChoice() {
         initComponents();
-
-        currentChild = LoginPage.currentChild;
+        if(LoginPage.currentChild== null){
+             start2Button.setText("BACK"); 
+        } 
+        else {
+            currentChild = LoginPage.currentChild;
+        }
+        
         
         exerciseList = new ArrayList<>();
         exerciseList = FileOp.readQuestionFromFile("Settings.ser");
@@ -31,9 +36,7 @@ public class GameChoice extends javax.swing.JFrame {
             table.addRow(row);
         }
           
-        if(currentChild.getChildUsername() == null){     
-            start2Button.setText("BACK");           
-        }
+        
         
     }
 
@@ -148,7 +151,7 @@ public class GameChoice extends javax.swing.JFrame {
 
     private void start2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start2ButtonActionPerformed
 
-        if(currentChild.getChildUsername() != null){
+        if(currentChild != null){
             int selectedRow = gameListTable1.getSelectedRow();
             if (selectedRow != -1) {
                 rowData = new Object[table.getColumnCount()];

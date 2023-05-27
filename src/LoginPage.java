@@ -6,9 +6,10 @@ import javax.swing.JOptionPane;
 public class LoginPage extends javax.swing.JFrame {
 
     public static ChildrenInfo currentChild = new ChildrenInfo();
-
+    
     public LoginPage() {
         initComponents();
+        currentChild = null;
     }
 
     @SuppressWarnings("unchecked")
@@ -179,7 +180,8 @@ public class LoginPage extends javax.swing.JFrame {
                 }
             }
             if (isChildFound) {
-
+                
+                currentChild = new ChildrenInfo(username, password);
                 currentChild.setChildUsername(username);
 
                 String message = "Child login";

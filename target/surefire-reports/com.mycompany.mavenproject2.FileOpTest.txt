@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: com.mycompany.mavenproject2.FileOpTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.037 sec <<< FAILURE!
+com.mycompany.mavenproject2.FileOpTest.testWriteChildToFile()  Time elapsed: 0.037 sec  <<< FAİLURE!
+org.opentest4j.AssertionFailedError: expected: <[ChildrenInfo{childUsername=child1, childPassword=password1}, ChildrenInfo{childUsername=child2, childPassword=password2}, ChildrenInfo{childUsername=child3, childPassword=password3}]> but was: <[ChildrenInfo{childUsername=child4, childPassword=password1}, ChildrenInfo{childUsername=child2, childPassword=password2}, ChildrenInfo{childUsername=child3, childPassword=password3}]>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)
+	at com.mycompany.mavenproject2.FileOpTest.testWriteChildToFile(FileOpTest.java:69)
+

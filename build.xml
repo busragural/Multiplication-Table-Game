@@ -74,24 +74,6 @@
 
 
     <!-- Test task -->
-<target name="test" depends="compile-test">
-    <junit printsummary="yes">
-        <classpath>
-            <!-- Include project classpath -->
-            <path refid="classpath"/>
-            <!-- Include test classpath -->
-            <path refid="test.classpath"/>
-        </classpath>
-        <formatter type="brief" usefile="false"/>
-        <batchtest fork="yes" todir="${build.test.results.dir}">
-            <!-- Specify the test classes to run -->
-            <fileset dir="${test.src.dir}">
-            
-                <include name="**/*Test.java"/>
-            </fileset>
-        </batchtest>
-    </junit>
-</target>
 
 
 

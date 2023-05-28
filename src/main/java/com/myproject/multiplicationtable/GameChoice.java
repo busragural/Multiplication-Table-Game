@@ -17,6 +17,7 @@ public class GameChoice extends javax.swing.JFrame {
         initComponents();
         if(LoginPage.currentChild== null){      // if the parent is looking at the table
              start2Button.setText("BACK");
+             logoutBtn.setVisible(false);
              
         } 
         else {                                  // if the child is choosing game from the table
@@ -139,13 +140,13 @@ public class GameChoice extends javax.swing.JFrame {
         gameCoicePanelLayout.setHorizontalGroup(
             gameCoicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gameCoicePanelLayout.createSequentialGroup()
-                .addContainerGap(235, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(224, 224, 224))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gameCoicePanelLayout.createSequentialGroup()
+            .addGroup(gameCoicePanelLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(scoreBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(300, 300, 300)
                 .addComponent(start2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(gameCoicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(gameCoicePanelLayout.createSequentialGroup()
@@ -166,10 +167,10 @@ public class GameChoice extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(start2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gameCoicePanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(gameCoicePanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75))))
+                        .addContainerGap(75, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gameCoicePanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(gameCoicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -218,7 +219,7 @@ public class GameChoice extends javax.swing.JFrame {
         }
         else{       //for the parent
             dispose();
-            new GameMode().setVisible(true);
+            new ParentMenu().setVisible(true);
         }       
     }//GEN-LAST:event_start2ButtonActionPerformed
 

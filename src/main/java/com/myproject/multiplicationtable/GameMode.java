@@ -33,10 +33,8 @@ public class GameMode extends javax.swing.JFrame {
         qnLabel = new javax.swing.JLabel();
         questNumberField = new javax.swing.JTextField();
         saveBtn = new javax.swing.JButton();
-        logoutBtn = new javax.swing.JButton();
         firstNumberField2 = new javax.swing.JTextField();
         secondNumberField2 = new javax.swing.JTextField();
-        reportBtn = new javax.swing.JButton();
         fnLabel1 = new javax.swing.JLabel();
         snLabel1 = new javax.swing.JLabel();
         listBtn = new javax.swing.JButton();
@@ -98,18 +96,6 @@ public class GameMode extends javax.swing.JFrame {
             }
         });
 
-        logoutBtn.setBackground(new java.awt.Color(163, 26, 203));
-        logoutBtn.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
-        logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
-        logoutBtn.setText("LOGOUT");
-        logoutBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        logoutBtn.setBorderPainted(false);
-        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutBtnActionPerformed(evt);
-            }
-        });
-
         firstNumberField2.setBackground(new java.awt.Color(141, 203, 230));
         firstNumberField2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         firstNumberField2.setForeground(new java.awt.Color(255, 255, 255));
@@ -122,18 +108,6 @@ public class GameMode extends javax.swing.JFrame {
         secondNumberField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         secondNumberField2.setBorder(null);
 
-        reportBtn.setBackground(new java.awt.Color(163, 26, 203));
-        reportBtn.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
-        reportBtn.setForeground(new java.awt.Color(255, 255, 255));
-        reportBtn.setText("REPORT");
-        reportBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        reportBtn.setBorderPainted(false);
-        reportBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reportBtnActionPerformed(evt);
-            }
-        });
-
         fnLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         fnLabel1.setForeground(new java.awt.Color(163, 26, 203));
         fnLabel1.setText("A(max)");
@@ -145,7 +119,7 @@ public class GameMode extends javax.swing.JFrame {
         listBtn.setBackground(new java.awt.Color(163, 26, 203));
         listBtn.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
         listBtn.setForeground(new java.awt.Color(255, 255, 255));
-        listBtn.setText("LIST");
+        listBtn.setText("BACK");
         listBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         listBtn.setBorderPainted(false);
         listBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -179,9 +153,7 @@ public class GameMode extends javax.swing.JFrame {
                         .addGap(78, 450, Short.MAX_VALUE)))
                 .addGap(140, 140, 140))
             .addGroup(modePanelLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(reportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
                 .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
                         .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,32 +165,23 @@ public class GameMode extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modePanelLayout.createSequentialGroup()
                         .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(modePanelLayout.createSequentialGroup()
-                                .addComponent(listBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(modePanelLayout.createSequentialGroup()
                                 .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(snLabel)
                                     .addComponent(newUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(modePanelLayout.createSequentialGroup()
-                                        .addGap(83, 83, 83)
-                                        .addComponent(snLabel1))
-                                    .addGroup(modePanelLayout.createSequentialGroup()
-                                        .addGap(144, 144, 144)
-                                        .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(83, 83, 83)
+                                .addComponent(snLabel1)
+                                .addGap(144, 144, 144))
+                            .addGroup(modePanelLayout.createSequentialGroup()
+                                .addComponent(listBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(27, 27, 27))))
         );
         modePanelLayout.setVerticalGroup(
             modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(modePanelLayout.createSequentialGroup()
-                .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(modePanelLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(newUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(modePanelLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(46, 46, 46)
+                .addComponent(newUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69)
                 .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(fnLabel)
@@ -242,7 +205,6 @@ public class GameMode extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addGroup(modePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(reportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(listBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(21, 21, 21))
                     .addGroup(modePanelLayout.createSequentialGroup()
@@ -307,20 +269,9 @@ public class GameMode extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_saveBtnActionPerformed
 
-    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
-
-        dispose();
-        new LoginPage().setVisible(true);
-    }//GEN-LAST:event_logoutBtnActionPerformed
-
-    private void reportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportBtnActionPerformed
-        dispose();
-        new Report().setVisible(true);
-    }//GEN-LAST:event_reportBtnActionPerformed
-
     private void listBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listBtnActionPerformed
         dispose();
-        new GameChoice().setVisible(true);
+        new ParentMenu().setVisible(true);
     }//GEN-LAST:event_listBtnActionPerformed
 
     public static void main(String args[]) {
@@ -364,12 +315,10 @@ public class GameMode extends javax.swing.JFrame {
     private javax.swing.JLabel fnLabel;
     private javax.swing.JLabel fnLabel1;
     private javax.swing.JButton listBtn;
-    private javax.swing.JButton logoutBtn;
     private javax.swing.JPanel modePanel;
     private javax.swing.JLabel newUserLabel;
     private javax.swing.JLabel qnLabel;
     private javax.swing.JTextField questNumberField;
-    private javax.swing.JButton reportBtn;
     private javax.swing.JButton saveBtn;
     private javax.swing.JTextField secondNumberField1;
     private javax.swing.JTextField secondNumberField2;

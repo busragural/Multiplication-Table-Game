@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.myproject.multiplicationtable;
 
 import java.awt.Toolkit;
@@ -18,26 +14,26 @@ import javax.swing.table.TableRowSorter;
  * @author BusraGural
  */
 public class AllScores extends javax.swing.JFrame {
-    
+
     private List<Questions> settList;
     private List<Object[]> scoreForTable;
     static Object[] rowData;
     DefaultTableModel table;
-    /**
-     * Creates new form AllScores
-     */
+
+    
+    // FOR PARENT
     public AllScores(Object[] rowData) {
         initComponents();
         this.rowData = rowData;
         settList = FileOp.readQuestionFromFile("Settings.ser");
-        
+
         scoreForTable = new ArrayList<>(settList.get(Integer.parseInt(rowData[5].toString())).highScores.size());
         for (String[] string : settList.get(Integer.parseInt(rowData[5].toString())).highScores) {
             scoreForTable.add(string);
         }
-        
+
         table = (DefaultTableModel) allScoresTable.getModel();
-        
+
         Object[] row = new Object[4];
 
         for (Object[] str : scoreForTable) {
@@ -45,7 +41,6 @@ public class AllScores extends javax.swing.JFrame {
             row[1] = str[1];
             row[2] = str[2];
             row[3] = str[3];
-           
 
             table.addRow(row);
         }
@@ -53,10 +48,11 @@ public class AllScores extends javax.swing.JFrame {
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(table);
         allScoresTable.setRowSorter(sorter);
         sorter.setComparator(1, Comparator.reverseOrder());
-        sorter.setSortKeys(List.of(new RowSorter.SortKey(1, SortOrder.ASCENDING))); // 
+        sorter.setSortKeys(List.of(new RowSorter.SortKey(1, SortOrder.ASCENDING)));
+        sorter.setSortKeys(List.of(new RowSorter.SortKey(2, SortOrder.ASCENDING)));
+        sorter.setSortKeys(List.of(new RowSorter.SortKey(3, SortOrder.ASCENDING)));
         sorter.sort();
-        
-        
+
     }
 
     /**
@@ -177,7 +173,7 @@ public class AllScores extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void backButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButton1ActionPerformed
-       dispose();
+        dispose();
         new GameChoice().setVisible(true);
     }//GEN-LAST:event_backButton1ActionPerformed
 
@@ -209,10 +205,8 @@ public class AllScores extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AllScores(rowData).setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new AllScores(rowData).setVisible(true);
         });
     }
 

@@ -1,6 +1,7 @@
 package com.myproject.multiplicationtable;
 
 import java.awt.Toolkit;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
@@ -13,7 +14,8 @@ public class Report extends javax.swing.JFrame {
     public Report() {
         initComponents();
         int n;
-        reportForTable = FileOp.readReportFromFile("Report_1.csv");
+        reportForTable = new ArrayList<>();
+        reportForTable = FileOp.readReportFromFile("GeneralReport.csv");
 
         table = (DefaultTableModel) generalTable.getModel();
         Object[] row = new Object[6];
@@ -36,7 +38,7 @@ public class Report extends javax.swing.JFrame {
 
         }
 
-        List<Object[]> report = FileOp.readReportFromFile("Report_2.csv");
+        List<Object[]> report = FileOp.readReportFromFile("SpecialReport.csv");
         table = (DefaultTableModel) specialTable.getModel();
 
         row = new Object[6];
@@ -61,9 +63,7 @@ public class Report extends javax.swing.JFrame {
         specialTable = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         generalTable = new javax.swing.JTable();
-        logoutButtn = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
-        chartBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(Toolkit.getDefaultToolkit().getScreenSize().width/5,Toolkit.getDefaultToolkit().getScreenSize().height/10);
@@ -122,18 +122,6 @@ public class Report extends javax.swing.JFrame {
         generalTable.setShowGrid(true);
         jScrollPane2.setViewportView(generalTable);
 
-        logoutButtn.setBackground(new java.awt.Color(157, 241, 223));
-        logoutButtn.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
-        logoutButtn.setForeground(new java.awt.Color(163, 26, 203));
-        logoutButtn.setText("LOGOUT");
-        logoutButtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        logoutButtn.setBorderPainted(false);
-        logoutButtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutButtnActionPerformed(evt);
-            }
-        });
-
         backButton.setBackground(new java.awt.Color(157, 241, 223));
         backButton.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
         backButton.setForeground(new java.awt.Color(163, 26, 203));
@@ -146,18 +134,6 @@ public class Report extends javax.swing.JFrame {
             }
         });
 
-        chartBtn.setBackground(new java.awt.Color(163, 26, 203));
-        chartBtn.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
-        chartBtn.setForeground(new java.awt.Color(141, 203, 230));
-        chartBtn.setText("CHART");
-        chartBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        chartBtn.setBorderPainted(false);
-        chartBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chartBtnActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout reportPanelLayout = new javax.swing.GroupLayout(reportPanel);
         reportPanel.setLayout(reportPanelLayout);
         reportPanelLayout.setHorizontalGroup(
@@ -166,11 +142,8 @@ public class Report extends javax.swing.JFrame {
                 .addContainerGap(43, Short.MAX_VALUE)
                 .addGroup(reportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(reportPanelLayout.createSequentialGroup()
-                        .addComponent(chartBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(256, 256, 256)
-                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(252, 252, 252)
-                        .addComponent(logoutButtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(393, 393, 393)
+                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(reportPanelLayout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -185,11 +158,7 @@ public class Report extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(reportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(backButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(reportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(chartBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(logoutButtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -207,19 +176,10 @@ public class Report extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void logoutButtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtnActionPerformed
-        dispose();
-        new LoginPage().setVisible(true);
-    }//GEN-LAST:event_logoutButtnActionPerformed
-
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         dispose();
-        new GameMode().setVisible(true);
+        new ParentMenu().setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
-
-    private void chartBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chartBtnActionPerformed
-        new PieChart().setVisible(true);
-    }//GEN-LAST:event_chartBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,11 +221,9 @@ public class Report extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
-    private javax.swing.JButton chartBtn;
     private javax.swing.JTable generalTable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton logoutButtn;
     private javax.swing.JPanel reportPanel;
     private javax.swing.JTable specialTable;
     // End of variables declaration//GEN-END:variables

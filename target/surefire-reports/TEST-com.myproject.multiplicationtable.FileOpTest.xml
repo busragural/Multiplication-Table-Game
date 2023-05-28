@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="1" name="com.myproject.multiplicationtable.FileOpTest" time="0.042" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="com.myproject.multiplicationtable.FileOpTest" time="0.027" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="20.0.1+9-29"/>
@@ -62,19 +62,8 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.myproject.multiplicationtable.FileOpTest" name="com.myproject.multiplicationtable.FileOpTest.testWriteChildToFile" time="0.035">
-    <failure message="expected: &lt;[ChildrenInfo{childUsername=child1, childPassword=password1}, ChildrenInfo{childUsername=child2, childPassword=password2}, ChildrenInfo{childUsername=child3, childPassword=password3}]&gt; but was: &lt;[ChildrenInfo{childUsername=child4, childPassword=password1}, ChildrenInfo{childUsername=child2, childPassword=password2}, ChildrenInfo{childUsername=child3, childPassword=password3}]&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;[ChildrenInfo{childUsername=child1, childPassword=password1}, ChildrenInfo{childUsername=child2, childPassword=password2}, ChildrenInfo{childUsername=child3, childPassword=password3}]&gt; but was: &lt;[ChildrenInfo{childUsername=child4, childPassword=password1}, ChildrenInfo{childUsername=child2, childPassword=password2}, ChildrenInfo{childUsername=child3, childPassword=password3}]&gt;
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
-	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)
-	at com.myproject.multiplicationtable.FileOpTest.testWriteChildToFile(FileOpTest.java:67)
-</failure>
-    <system-out>okay.
-</system-out>
-  </testcase>
-  <testcase classname="com.myproject.multiplicationtable.FileOpTest" name="com.myproject.multiplicationtable.FileOpTest.testReadReportFromFile" time="0"/>
-  <testcase classname="com.myproject.multiplicationtable.FileOpTest" name="com.myproject.multiplicationtable.FileOpTest.testReadChildFromFile" time="0.003"/>
-  <testcase classname="com.myproject.multiplicationtable.FileOpTest" name="com.myproject.multiplicationtable.FileOpTest.testIsEmpty_NonEmptyFile" time="0.004"/>
+  <testcase classname="com.myproject.multiplicationtable.FileOpTest" name="com.myproject.multiplicationtable.FileOpTest.testWriteChildToFile" time="0.02"/>
+  <testcase classname="com.myproject.multiplicationtable.FileOpTest" name="com.myproject.multiplicationtable.FileOpTest.testReadChildFromFile" time="0.001"/>
+  <testcase classname="com.myproject.multiplicationtable.FileOpTest" name="com.myproject.multiplicationtable.FileOpTest.testIsEmpty_NonEmptyFile" time="0.005"/>
+  <testcase classname="com.myproject.multiplicationtable.FileOpTest" name="com.myproject.multiplicationtable.FileOpTest.testReadReportFromFile" time="0.001"/>
 </testsuite>

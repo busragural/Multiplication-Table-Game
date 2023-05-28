@@ -172,7 +172,7 @@ public class LoginPage extends javax.swing.JFrame {
             String message = "Parent login.";
             JOptionPane.showMessageDialog(this, message);
             dispose();
-            new GameMode().setVisible(true);
+            new ParentMenu().setVisible(true);
             
         } 
         else {

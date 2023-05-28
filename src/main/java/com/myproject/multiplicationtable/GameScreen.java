@@ -317,7 +317,7 @@ public class GameScreen extends javax.swing.JFrame {
                         + timeOfQuestions.get(i);
 
                 try {
-                    FileOp.writeReportToFile("Report_2.csv", reportSpecial);
+                    FileOp.writeReportToFile("SpecialReport.csv", reportSpecial);
                 } catch (IOException ex) {
                     Logger.getLogger(GameScreen.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -339,12 +339,12 @@ public class GameScreen extends javax.swing.JFrame {
             System.out.println(reportGeneral);
 
             try {
-                FileOp.writeReportToFile("Report_1.csv", reportGeneral);
+                FileOp.writeReportToFile("GeneralReport.csv", reportGeneral);
             } catch (IOException ex) {
                 Logger.getLogger(GameScreen.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            timeScore = 2500 / (gameTime / Integer.parseInt(rowDataString[4]));
+            timeScore = 2500 / (((gameTime+1) / Integer.parseInt(rowDataString[4]))+1);
             truthScore = (trueAns * 350) - (falseAns * 125);
             score = timeScore + truthScore;
 

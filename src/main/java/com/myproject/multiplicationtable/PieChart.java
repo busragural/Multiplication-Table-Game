@@ -89,7 +89,7 @@ public class PieChart extends JFrame {
 
         EventQueue.invokeLater(() -> {
 
-            PieChart ex = new PieChart();
+            PieChart ex = new PieChart();           
             ex.setVisible(true);
         });
     }

@@ -104,7 +104,7 @@ public class LoginPage extends javax.swing.JFrame {
             .addGroup(backgroundPanelLayout.createSequentialGroup()
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
-                        .addContainerGap(739, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(mtgLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1))
@@ -123,7 +123,7 @@ public class LoginPage extends javax.swing.JFrame {
                                         .addComponent(loginButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(passwordField)
                                         .addComponent(usernameField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 87, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         backgroundPanelLayout.setVerticalGroup(
@@ -139,11 +139,11 @@ public class LoginPage extends javax.swing.JFrame {
                 .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(goRegisterBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(mtgLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE))
-                .addGap(31, 31, 31))
+                    .addComponent(mtgLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE))
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -166,11 +166,17 @@ public class LoginPage extends javax.swing.JFrame {
 
         String username = usernameField.getText();
         String password = new String(passwordField.getPassword());
-
+        
+        if(username.isEmpty() || password.isEmpty() ){
+            String message = "Please fill in all fields.";
+            JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
         if ("parent".equals(username) && "123".equals(password)) {
 
             String message = "Parent login.";
-            JOptionPane.showMessageDialog(this, message);
+            JOptionPane.showMessageDialog(this, message, "Login", JOptionPane.INFORMATION_MESSAGE);
             dispose();
             new ParentMenu().setVisible(true);
             
@@ -193,15 +199,15 @@ public class LoginPage extends javax.swing.JFrame {
                 currentChild = new ChildrenInfo(username, password); // cild to be sent to other classes
                 currentChild.setChildUsername(username);
 
-                String message = "Child login";
-                JOptionPane.showMessageDialog(this, message);
+                String message = "Child login.";
+                JOptionPane.showMessageDialog(this, message, "Login", JOptionPane.INFORMATION_MESSAGE);
                 dispose();
                 new GameChoice().setVisible(true);  
             } 
             else { // login failed
 
                 String message = "Invalid user.";
-                JOptionPane.showMessageDialog(this, message);
+                JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
             }
         }
     }//GEN-LAST:event_loginButtonActionPerformed

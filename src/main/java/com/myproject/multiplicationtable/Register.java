@@ -115,7 +115,15 @@ public class Register extends javax.swing.JFrame {
         
         String username = usernameRegField.getText();
         String password = new String(passwordRegField.getPassword());
-
+        String tmp1 = firstNameField.getText();
+        String tmp2 = lastNameField.getText();
+        
+        if(username.isEmpty() || password.isEmpty() || tmp1.isEmpty() || tmp2.isEmpty()){
+            String message = "Please fill in all fields.";
+            JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
         List<ChildrenInfo> tmp = FileOp.readChildFromFile("ChildrenInfo.ser");
 
         ChildrenInfo child = new ChildrenInfo(username, password);

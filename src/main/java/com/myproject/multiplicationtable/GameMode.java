@@ -229,24 +229,31 @@ public class GameMode extends javax.swing.JFrame {
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
 
-        String input1 = firstNumberField1.getText();
-        int a1 = Integer.parseInt(input1);
-        String input2 = firstNumberField2.getText();
-        int a2 = Integer.parseInt(input2);
-
-        String input3 = secondNumberField1.getText();
-        int b1 = Integer.parseInt(input3);
-        String input4 = secondNumberField2.getText();
-        int b2 = Integer.parseInt(input4);
-
+        String input1 = firstNumberField1.getText();      
+        String input2 = firstNumberField2.getText();        
+        String input3 = secondNumberField1.getText();     
+        String input4 = secondNumberField2.getText();        
         String input5 = questNumberField.getText();
-        int N = Integer.parseInt(input5);
+        
 
-        if (a2 <= a1 || b2 <= b1 || N == 0 || a1 <= 0 || b1 <= 0) {
+        if (input1.isEmpty() || input2.isEmpty() || input3.isEmpty() || input4.isEmpty()|| input5.isEmpty()) {
+            
+            String message = "Please fill in all fields.";
+            JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } 
+        int a1 = Integer.parseInt(input1);
+        int a2 = Integer.parseInt(input2);
+        int b1 = Integer.parseInt(input3);
+        int b2 = Integer.parseInt(input4);
+        int N = Integer.parseInt(input5);
+            
+        if(a2 <= a1 || b2 <= b1 || N == 0 || a1 <= 0 || b1 <= 0 ){
             String message = "Please enter valid values.";
             JOptionPane.showMessageDialog(this, message);
-        } 
-        else {
+        }
+        else{
+   
             int[] tmp = {a1, a2, b1, b2, N, 0};
 
             q.makeOneSetting(tmp);

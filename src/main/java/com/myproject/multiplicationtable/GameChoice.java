@@ -22,7 +22,7 @@ public class GameChoice extends javax.swing.JFrame {
         } 
         else {                                  // if the child is choosing game from the table
             currentChild = LoginPage.currentChild;
-            scoreBtn.setVisible(false);
+            //scoreBtn.setVisible(false);
             deleteBtn.setVisible(false);
         }
 

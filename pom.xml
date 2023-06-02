@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mycompany</groupId>
-    <artifactId>mavenproject2</artifactId>
+    <artifactId>MultiplicationTable</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <dependencies>
@@ -29,6 +29,7 @@
             <artifactId>jfreechart</artifactId>
             <version>1.5.3</version>
         </dependency>
+        
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -36,26 +37,46 @@
         <maven.compiler.target>20</maven.compiler.target>
         <exec.mainClass>com.mycompany.mavenproject2.Mavenproject2</exec.mainClass>
     </properties>
-    <build>
-    <plugins>
-        <!-- Diğer pluginler -->
-        
-        <!-- Maven JAR Plugin -->
+        <build>
+        <plugins>
+            <!-- Diğer pluginler -->
+
+            <!-- Maven JAR Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.myproject.multiplicationtable.LoginPage</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+             <!-- Maven Dependency Copy Plugin -->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-jar-plugin</artifactId>
-            <version>3.2.0</version>
-            <configuration>
-                <archive>
-                    <manifest>
-                        <addClasspath>true</addClasspath>
-                        <mainClass>com.mycompany.mavenproject2.LoginPage</mainClass>
-                    </manifest>
-                </archive>
-            </configuration>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>3.1.2</version>
+            <executions>
+                <execution>
+                    <id>copy-dependencies</id>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>copy-dependencies</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                    </configuration>
+                </execution>
+            </executions>
         </plugin>
-    </plugins>
-</build>
+
+        </plugins>
+    </build>
 
 
 

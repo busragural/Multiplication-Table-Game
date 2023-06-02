@@ -86,9 +86,13 @@ public class FileOp {
     }
 
     public static boolean isEmpty(String fileName) throws IOException {
-        Path filePath = Paths.get(fileName);
-        return Files.size(filePath) == 0;
+     Path filePath = Paths.get(fileName);
+    if (!Files.exists(filePath)) {
+        Files.createFile(filePath);
+        return true;
     }
+    return Files.size(filePath) == 0;
+}
 
     public static List<Object[]> readReportFromFile(String fileName) {
 

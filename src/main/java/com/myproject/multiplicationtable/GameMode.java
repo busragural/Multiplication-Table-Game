@@ -90,6 +90,7 @@ public class GameMode extends javax.swing.JFrame {
         saveBtn.setText("SAVE");
         saveBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         saveBtn.setBorderPainted(false);
+        saveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveBtnActionPerformed(evt);
@@ -122,6 +123,7 @@ public class GameMode extends javax.swing.JFrame {
         listBtn.setText("BACK");
         listBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         listBtn.setBorderPainted(false);
+        listBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         listBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listBtnActionPerformed(evt);

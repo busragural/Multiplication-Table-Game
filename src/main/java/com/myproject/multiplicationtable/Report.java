@@ -90,6 +90,7 @@ public class Report extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        specialTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         specialTable.setRowHeight(30);
         specialTable.setSelectionBackground(new java.awt.Color(157, 241, 223));
         specialTable.setSelectionForeground(new java.awt.Color(0, 0, 0));
@@ -116,6 +117,7 @@ public class Report extends javax.swing.JFrame {
             }
         });
         generalTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
+        generalTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         generalTable.setRowHeight(30);
         generalTable.setSelectionBackground(new java.awt.Color(157, 241, 223));
         generalTable.setSelectionForeground(new java.awt.Color(0, 0, 0));
@@ -128,6 +130,7 @@ public class Report extends javax.swing.JFrame {
         backButton.setText("BACK");
         backButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         backButton.setBorderPainted(false);
+        backButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);

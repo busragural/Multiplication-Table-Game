@@ -114,6 +114,7 @@ public class AllScores extends javax.swing.JFrame {
         backButton1.setText("BACK");
         backButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         backButton1.setBorderPainted(false);
+        backButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         backButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButton1ActionPerformed(evt);

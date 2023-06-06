@@ -110,6 +110,7 @@ public class GameScreen extends javax.swing.JFrame {
         answerBtn.setText("ANSWER");
         answerBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         answerBtn.setBorderPainted(false);
+        answerBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         answerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 answerBtnActionPerformed(evt);
@@ -129,6 +130,7 @@ public class GameScreen extends javax.swing.JFrame {
         startButton.setText("START");
         startButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         startButton.setBorderPainted(false);
+        startButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         startButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startButtonActionPerformed(evt);
@@ -141,6 +143,7 @@ public class GameScreen extends javax.swing.JFrame {
         lBoardButton.setText("LEADERBOARD");
         lBoardButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lBoardButton.setBorderPainted(false);
+        lBoardButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lBoardButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lBoardButtonActionPerformed(evt);
@@ -153,6 +156,7 @@ public class GameScreen extends javax.swing.JFrame {
         newGameButton.setText("NEW GAME");
         newGameButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         newGameButton.setBorderPainted(false);
+        newGameButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         newGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newGameButtonActionPerformed(evt);
@@ -165,6 +169,7 @@ public class GameScreen extends javax.swing.JFrame {
         logoutBTN.setText("LOGOUT");
         logoutBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         logoutBTN.setBorderPainted(false);
+        logoutBTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logoutBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutBTNActionPerformed(evt);

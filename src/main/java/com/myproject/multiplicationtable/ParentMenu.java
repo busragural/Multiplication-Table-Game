@@ -38,6 +38,7 @@ public class ParentMenu extends javax.swing.JFrame {
         listGameBtn.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
         listGameBtn.setForeground(new java.awt.Color(163, 26, 203));
         listGameBtn.setText("LIST GAME");
+        listGameBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         listGameBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listGameBtnActionPerformed(evt);
@@ -48,6 +49,7 @@ public class ParentMenu extends javax.swing.JFrame {
         addGameBtn.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
         addGameBtn.setForeground(new java.awt.Color(163, 26, 203));
         addGameBtn.setText("ADD GAME");
+        addGameBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         addGameBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addGameBtnActionPerformed(evt);
@@ -58,6 +60,7 @@ public class ParentMenu extends javax.swing.JFrame {
         reportBtn.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
         reportBtn.setForeground(new java.awt.Color(163, 26, 203));
         reportBtn.setText("REPORT");
+        reportBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         reportBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reportBtnActionPerformed(evt);
@@ -68,6 +71,7 @@ public class ParentMenu extends javax.swing.JFrame {
         chartBtn.setFont(new java.awt.Font("Press Start 2P", 0, 18)); // NOI18N
         chartBtn.setForeground(new java.awt.Color(163, 26, 203));
         chartBtn.setText("CHART");
+        chartBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         chartBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chartBtnActionPerformed(evt);
@@ -100,6 +104,7 @@ public class ParentMenu extends javax.swing.JFrame {
         logoutButtn.setText("LOGOUT");
         logoutButtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         logoutButtn.setBorderPainted(false);
+        logoutButtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logoutButtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButtnActionPerformed(evt);
@@ -110,12 +115,17 @@ public class ParentMenu extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(224, 224, 224)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(49, 49, 49)
+                .addComponent(logoutButtn)
+                .addGap(30, 30, 30))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(362, 362, 362))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -136,15 +146,10 @@ public class ParentMenu extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(143, 143, 143)
                                         .addComponent(jLabel3)))))
-                        .addGap(236, 236, 236))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(224, 224, 224)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(49, 49, 49)
-                .addComponent(logoutButtn)
-                .addGap(30, 30, 30))
+                        .addGap(236, 236, 236))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(362, 362, 362))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,9 +159,9 @@ public class ParentMenu extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(logoutButtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addGap(40, 40, 40)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
+                        .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(addGameBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(listGameBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -172,7 +177,7 @@ public class ParentMenu extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)))
                 .addGap(22, 22, 22))
         );
 

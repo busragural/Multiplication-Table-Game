@@ -67,6 +67,7 @@ public class GameChoice extends javax.swing.JFrame {
         start2Button.setText("START");
         start2Button.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         start2Button.setBorderPainted(false);
+        start2Button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         start2Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 start2ButtonActionPerformed(evt);
@@ -105,6 +106,7 @@ public class GameChoice extends javax.swing.JFrame {
         logoutBtn.setText("LOGOUT");
         logoutBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         logoutBtn.setBorderPainted(false);
+        logoutBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutBtnActionPerformed(evt);
@@ -117,6 +119,7 @@ public class GameChoice extends javax.swing.JFrame {
         scoreBtn.setText("SCORES");
         scoreBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         scoreBtn.setBorderPainted(false);
+        scoreBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         scoreBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 scoreBtnActionPerformed(evt);
@@ -129,6 +132,7 @@ public class GameChoice extends javax.swing.JFrame {
         deleteBtn.setText("DELETE");
         deleteBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         deleteBtn.setBorderPainted(false);
+        deleteBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteBtnActionPerformed(evt);
@@ -148,9 +152,9 @@ public class GameChoice extends javax.swing.JFrame {
                 .addComponent(scoreBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(gameCoicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(gameCoicePanelLayout.createSequentialGroup()
-                        .addGap(321, 321, 321)
+                        .addGap(300, 300, 300)
                         .addComponent(start2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(271, 271, 271)
+                        .addGap(292, 292, 292)
                         .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(gameCoicePanelLayout.createSequentialGroup()
                         .addGap(570, 570, 570)

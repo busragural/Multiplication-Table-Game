@@ -114,6 +114,7 @@ public class Leaderboard extends javax.swing.JFrame {
         logoutBTN.setText("LOG OUT");
         logoutBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         logoutBTN.setBorderPainted(false);
+        logoutBTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logoutBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutBTNActionPerformed(evt);
@@ -126,6 +127,7 @@ public class Leaderboard extends javax.swing.JFrame {
         newGameButton.setText("NEW GAME");
         newGameButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         newGameButton.setBorderPainted(false);
+        newGameButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         newGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newGameButtonActionPerformed(evt);

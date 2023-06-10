@@ -4,40 +4,40 @@ This project is an object oriented programming course project that will help ele
 
 The first time the file runs, the login page appears on the screen. Login with "parent" and "123".
 
-![image](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/807e4566-2a7d-4194-87c9-79e59ac755f5)
+![Ekran görüntüsü 2023-06-07 145448](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/a7a94d11-1d91-4c70-a3c1-e186bf7a0800)
 
 Parents can create multiplication questions, list them and view the details of the exercises.
-![image](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/690850b6-c446-4cbc-82e2-04da9293aa7d)
+![Ekran görüntüsü 2023-06-07 145632](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/652cc43b-783d-45bb-90ea-fd4abf4c5572)
 
 ADD GAME (ex: 1...5 x  2...9 -> The numbers 1 to 5 and the numbers 2 to 9 will be multiplied randomly.)
-![image](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/0f3d62f4-a3b0-499d-aa46-3e1717a0b950)
+![Ekran görüntüsü 2023-06-07 145758](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/f3232660-ea35-42f8-85e8-da955f24ff95)
 
 LIST GAME 
-![image](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/07de5d08-dbbd-45b6-9d6e-4480b708a72d)
+![Ekran görüntüsü 2023-06-07 145825](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/da1d612f-9fea-470c-a37c-8a1eb85f3036)
 
 REPORT (Details of the answers to the questions in that exercise)
-![image](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/bc439f60-88c2-4655-a8ca-44a42c276cbc)
+![Ekran görüntüsü 2023-06-07 150024](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/1abc341b-7a90-4093-a90f-086cefc741be)
 
 CHART (Shows the total number of solved questions)
-![image](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/5191fbc4-9e3e-46a3-8f9e-40f3eb0d60fc)
+![Ekran görüntüsü 2023-06-07 150444](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/e9e7a931-651c-449f-bfc0-c62f623eb469)
 
 A new child is added by clicking the Register button.
-![image](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/666cba76-e77d-46e6-8264-91e5c1c46751)
+![Ekran görüntüsü 2023-06-07 145936](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/e18e3f17-dcc5-46c2-a47c-77596d44dc1f)
 
 Added exercises are displayed when the child logs in.
-![image](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/f68aacd9-fbb3-4a0a-88aa-00fe142c3265)
+![Ekran görüntüsü 2023-06-07 151003](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/ebc19bb4-6a20-4af3-beb1-f41bf5fa2edb)
 
 Can view the leaderboard for each exercise.
-![image](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/054bbec8-23fc-4091-80a4-ebfa7b32ad85)
+![Ekran görüntüsü 2023-06-07 151055](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/9591e822-891b-4f91-b073-b272a7d1bbf7)
 
 When the exercise starts, random questions appear on the screen.
-![image](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/e2ee6208-18da-4b3d-a677-e41e49c53d09)
+![Ekran görüntüsü 2023-06-07 151110](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/0c12b9df-c2ff-4cb6-ab67-014ee8b89791)
 
 At the end of the game, the score appears on the screen, if desired, it can be viewed from the leaderboard.
-![image](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/bea7a0e4-c3e1-4589-939c-a748b668ada3)
+![Ekran görüntüsü 2023-06-07 151211](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/f2e6aa1b-2583-4bc0-b1b4-0404fde6796c)
 
 HOW TO PLAY?
-![image](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/49b401ee-9f33-4f28-98fd-2605bca5d321)
+![Ekran görüntüsü 2023-06-07 151329](https://github.com/busragural/Multiplication-Table-Game/assets/114018504/1e2633e4-a316-4609-bfc9-3c1d9f01e766)
 
 The work was started with the ant project and converted to maven. The final-maven branch has the final version of the project.
 
